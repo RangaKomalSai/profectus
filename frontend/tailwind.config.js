@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         calistoga: ['Calistoga', 'sans-serif'],
+        crimson: ["Crimson Text", 'serif']
       },
     },
   },
