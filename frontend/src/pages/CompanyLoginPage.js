@@ -14,21 +14,21 @@ function StudentLoginPage() {
 
   return (
     <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen flex justify-center items-center text-white py-20">
-      <div className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg lg:mx-4 mx-8">
+      <div className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg sm:m-6 lg:mx-4 mx-8">
         <div className="flex justify-center space-x-2 p-4 mb-6">
           <button
             onClick={() => handleTabClick("student")}
-            className={`text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
+            className={`text-md md:text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
               selectedTab === "student"
                 ? "bg-black text-white border border-white"
-                : "bg-white text-black"
+                : "bg-white bg-opacity-60 text-gray-500 hover:bg-opacity-100 hover:text-black"
             }`}
           >
             STUDENT LOGIN
           </button>
           <button
             onClick={() => handleTabClick("company")}
-            className={`text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
+            className={`text-md md:text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
               selectedTab === "company"
                 ? "bg-black text-white border border-white"
                 : "bg-white text-black"
@@ -65,12 +65,6 @@ function StudentLoginPage() {
             Login
           </button>
         </form>
-        <p className="text-center mt-4">
-          Don't have an account?{" "}
-          <Link to="/register" className="text-blue-600 hover:underline">
-            Register Now
-          </Link>
-        </p>
       </div>
     </div>
   );
