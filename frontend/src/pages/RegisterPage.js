@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const departments = [
   "Aerospace Engineering",
@@ -35,17 +36,12 @@ function RegisterPage() {
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
   return (
-    <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] flex justify-center items-center text-white py-20">
+    <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen flex justify-center items-center text-white py-20">
       <div className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg lg:mx-4 mx-8">
         <h2 className="text-center text-3xl font-crimson font-bold mb-6">
           REGISTER
         </h2>
         <form className="space-y-8">
-          <input
-            type="text"
-            placeholder="Create a username"
-            className="w-full p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
           <input
             type="text"
             placeholder="Enter your Name"
@@ -126,9 +122,9 @@ function RegisterPage() {
         </form>
         <p className="text-center mt-4">
           Already have an account?{" "}
-          <a href="/login" className="text-blue-500">
+          <Link to="/login/student" className="text-blue-600 hover:underline">
             Login
-          </a>
+          </Link>
         </p>
       </div>
     </div>
