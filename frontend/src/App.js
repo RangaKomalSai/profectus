@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import Home from "./components/Home.js";
 import Register from "./components/Register.js";
 import LoginStudent from "./components/LoginStudent.js";
@@ -11,6 +12,19 @@ import CompanyDashboard from "./components/CompanyDashboard.js";
 import PageNotFound from "./components/PageNotFound.js";
 
 function App() {
+  useEffect(() => {
+    const initAOS = async () => {
+      const AOS = (await import("aos")).default;
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        anchorPlacement: "top-bottom",
+      });
+    };
+
+    initAOS();
+  }, []);
   return (
     <BrowserRouter>
       <Routes>

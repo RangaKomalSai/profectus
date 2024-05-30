@@ -83,7 +83,10 @@ function LoginStudent() {
         </div>
       )}
       <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen flex justify-center items-center text-white py-20">
-        <div className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg sm:m-6 lg:mx-4 mx-8">
+        <div
+          className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg sm:m-6 lg:mx-4 mx-8"
+          data-aos="zoom-in-up"
+        >
           <div className="flex justify-center space-x-2 p-4 mb-6">
             <button
               onClick={() => handleTabClick("student")}
