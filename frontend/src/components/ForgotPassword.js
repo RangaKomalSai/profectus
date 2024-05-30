@@ -12,7 +12,7 @@ function ForgotPassword() {
   const [formData, setFormData] = useState({
     email: "",
   });
-
+  const [isLoading, setIsLoading] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -39,6 +39,8 @@ function ForgotPassword() {
       }
     }
 
+    setIsLoading(true);
+
     try {
       const response = await axios.post(
         "http://localhost:5000/auth/forgot-password",
@@ -64,6 +66,8 @@ function ForgotPassword() {
       setTimeout(() => {
         setErrorMessage("");
       }, 5000);
+    } finally {
+      setIsLoading(false); // Set loading state to false
     }
   };
 
@@ -91,14 +95,21 @@ function ForgotPassword() {
               onChange={handleChange}
               placeholder="Enter your LDAP Email Id"
               className="w-full p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              disabled={isLoading}
             />
             <button
               type="submit"
               className={"w-full p-4 rounded-md font-bold bg-black text-white "}
+              disabled={isLoading}
             >
-              Send Email
+              {isLoading ? "Sending..." : "Send Email"}
             </button>
           </form>
+          {isLoading && (
+            <div className="flex justify-center mt-4">
+              <div className="loader"></div>
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -39,6 +39,7 @@ function Register() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const [isAgreed, setIsAgreed] = useState(false);
   const [selectedDepartment, setSelectedDepartment] = useState(false);
   const [selectedProgramme, setSelectedProgramme] = useState(false);
@@ -52,6 +53,7 @@ function Register() {
     password: "",
     confirmPassword: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -113,6 +115,7 @@ function Register() {
       }, 5000);
       return;
     }
+    setIsLoading(true);
 
     try {
       const response = await axios.post(
@@ -122,6 +125,7 @@ function Register() {
       );
       if (response.data.status) {
         console.log(response.data);
+
         setErrorMessage("");
 
         // Clear password fields after submission
@@ -131,9 +135,13 @@ function Register() {
           confirmPassword: "",
         });
 
-        navigate("/login/student/verify-otp", {
-          state: { email: response.data.email },
-        });
+        setSuccessMessage(response.data.message);
+        setTimeout(() => {
+          setErrorMessage("");
+          navigate("/login/student/verify-otp", {
+            state: { email: response.data.email },
+          });
+        }, 5000);
       }
     } catch (error) {
       console.error("Error registering user:", error);
@@ -141,6 +149,8 @@ function Register() {
       setTimeout(() => {
         setErrorMessage("");
       }, 5000);
+    } finally {
+      setIsLoading(false); // Set loading state to false
     }
   };
 
@@ -149,6 +159,11 @@ function Register() {
       {errorMessage && ( // Conditionally render error message
         <div className="bg-red-500 text-white p-4 fixed w-full text-center">
           {errorMessage}
+        </div>
+      )}
+      {successMessage && ( // Conditionally render error message
+        <div className="bg-green-500 text-white p-4 fixed w-full text-center">
+          {successMessage}
         </div>
       )}
       <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen flex justify-center items-center text-white py-20">
@@ -162,6 +177,7 @@ function Register() {
               name="name"
               onChange={handleChange}
               placeholder="Enter your Name"
+              disabled={isLoading}
               className="w-full p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
@@ -169,6 +185,7 @@ function Register() {
               name="contactNumber"
               onChange={handleChange}
               placeholder="Contact Number"
+              disabled={isLoading}
               className="w-full p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
@@ -177,6 +194,7 @@ function Register() {
               onChange={handleChange}
               autoCapitalize="characters"
               placeholder="Roll Number"
+              disabled={isLoading}
               className="w-full p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <select
@@ -184,6 +202,7 @@ function Register() {
                 selectedDepartment ? "text-black" : "text-gray-400"
               } p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500`}
               name="department"
+              disabled={isLoading}
               onChange={handleChange}
             >
               <option value="" disabled selected>
@@ -204,6 +223,7 @@ function Register() {
                 selectedProgramme ? "text-black" : "text-gray-400"
               } p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500`}
               name="programmeOfStudy"
+              disabled={isLoading}
               onChange={handleChange}
             >
               <option value="" disabled selected style={{ color: "black" }}>
@@ -225,6 +245,7 @@ function Register() {
                 name="password"
                 onChange={handleChange}
                 placeholder="Create a password"
+                disabled={isLoading}
                 className="w-full p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <i
@@ -240,6 +261,7 @@ function Register() {
                 type={confirmPasswordVisible ? "text" : "password"}
                 name="confirmPassword"
                 onChange={handleChange}
+                disabled={isLoading}
                 placeholder="Confirm your password"
                 className="w-full p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
@@ -258,6 +280,7 @@ function Register() {
                 id="agree"
                 checked={isAgreed}
                 onChange={() => setIsAgreed(!isAgreed)}
+                disabled={isLoading}
                 className="mr-2"
               />
               <label htmlFor="agree" className="text-md">
@@ -267,16 +290,22 @@ function Register() {
             </div>
             <button
               type="submit"
-              disabled={!isAgreed}
+              disabled={!isAgreed || isLoading}
               className={`w-full p-4 rounded-md font-bold ${
                 isAgreed
                   ? "bg-black text-white"
                   : "bg-gray-500 text-gray-300 cursor-not-allowed"
               }`}
             >
-              Register
+              {isLoading ? "Registering..." : "Register"}
             </button>
           </form>
+          {isLoading && (
+            <div className="flex justify-center mt-4">
+              <div className="loader"></div>{" "}
+              {/* Replace with your loading spinner */}
+            </div>
+          )}
           <p className="text-center mt-4">
             Already have an account?{" "}
             <Link to="/login/student" className="text-blue-600 hover:underline">
