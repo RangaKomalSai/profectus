@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import Home from "./components/Home.js";
+import Home from "./pages/Home.js";
 import Register from "./components/Register.js";
 import LoginStudent from "./components/LoginStudent.js";
 import VerifyOTP from "./components/VerifyOTP.js";

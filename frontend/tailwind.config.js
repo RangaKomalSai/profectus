@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         calistoga: ["Calistoga", "sans-serif"],
         crimson: ["Crimson Text", "serif"],
+        lato: ["Lato", "sans-serif"],
+        nunito: ["Nunito", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },
