@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function StudentLoginPage() {
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [selectedTab, setSelectedTab] = useState("student");
-  const [errorMessage, setErrorMessage] = useState("");
+function LoginCompany() {
   const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    axios.get("http://localhost:5000/auth/verify-company").then((res) => {
+      if (res.data.status) {
+        navigate("/company-dashboard");
+      } else {
+      }
+      console.log(res.data);
+    });
+  }, []);
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [selectedTab, setSelectedTab] = useState("company");
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -24,15 +34,23 @@ function StudentLoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    axios.defaults.withCredentials = true;
     try {
       const response = await axios.post(
-        "http://localhost:5000/user/login",
+        "http://localhost:5000/auth/login/company",
         formData
       );
+      // .then((response) => {
+      //   if (response.data.status) {
+      //   }
+      // })
+      // .catch((err) => {
+      //   console.log(err);
+      // });
       console.log(response.data); // Handle success response
       setErrorMessage(""); // Clear error message on success
-      // Redirect to another page on successful login
-      navigate("/dashboard");
+      navigate("/company-dashboard");
     } catch (error) {
       console.error(error.response.data); // Handle error message
       setErrorMessage(error.response.data.message || "An error occurred");
@@ -52,14 +70,17 @@ function StudentLoginPage() {
         </div>
       )}
       <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen flex justify-center items-center text-white py-20">
-        <div className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg sm:m-6 lg:mx-4 mx-8">
+        <div
+          className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg sm:m-6 lg:mx-4 mx-8"
+          data-aos="zoom-in-up"
+        >
           <div className="flex justify-center space-x-2 p-4 mb-6">
             <button
               onClick={() => handleTabClick("student")}
               className={`text-md md:text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
                 selectedTab === "student"
                   ? "bg-black text-white border border-white"
-                  : "bg-white text-black"
+                  : "bg-white bg-opacity-60 text-gray-500 hover:bg-opacity-100 hover:text-black"
               }`}
             >
               STUDENT LOGIN
@@ -101,9 +122,6 @@ function StudentLoginPage() {
                 onClick={() => setPasswordVisible(!passwordVisible)}
               ></i>
             </div>
-            <span className="text-blue-600 hover:underline">
-              <Link to="#">Forgot Password?</Link>
-            </span>
             <button
               type="submit"
               className="w-full bg-black text-white p-4 rounded-md"
@@ -111,16 +129,10 @@ function StudentLoginPage() {
               Login
             </button>
           </form>
-          <p className="text-center mt-4">
-            Don't have an account?{" "}
-            <Link to="/register" className="text-blue-600 hover:underline">
-              Register Now
-            </Link>
-          </p>
         </div>
       </div>
     </>
   );
 }
 
-export default StudentLoginPage;
+export default LoginCompany;

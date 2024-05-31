@@ -1,33 +1,52 @@
-import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import Home from "./pages/Home.js";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RegisterPage from "./pages/RegisterPage.js";
-import PageNotFound from "./pages/PageNotFound.js";
-import StudentLoginPage from "./pages/StudentLoginPage.js";
-import CompanyLoginPage from "./pages/CompanyLoginPage.js";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    errorElement: <PageNotFound />,
-  },
-  {
-    path: "/register",
-    element: <RegisterPage />,
-  },
-  {
-    path: "/login/student",
-    element: <StudentLoginPage />,
-  },
-  {
-    path: "/login/company",
-    element: <CompanyLoginPage />,
-  },
-]);
+import Register from "./components/Register.js";
+import LoginStudent from "./components/LoginStudent.js";
+import VerifyOTP from "./components/VerifyOTP.js";
+import ForgotPassword from "./components/ForgotPassword.js";
+import ResetPassword from "./components/ResetPassword.js";
+import LoginCompany from "./components/LoginCompany.js";
+import StudentDashboard from "./components/StudentDashboard.js";
+import CompanyDashboard from "./components/CompanyDashboard.js";
+import PageNotFound from "./components/PageNotFound.js";
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  useEffect(() => {
+    const initAOS = async () => {
+      const AOS = (await import("aos")).default;
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        anchorPlacement: "top-bottom",
+      });
+    };
+
+    initAOS();
+  }, []);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home />}
+          errorElement={<PageNotFound />}
+        ></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/login/student" element={<LoginStudent />}></Route>
+        <Route path="/login/student/verify-otp" element={<VerifyOTP />}></Route>
+        <Route path="/forgot-password" element={<ForgotPassword />}></Route>
+        <Route
+          path="/reset-password/:token"
+          element={<ResetPassword />}
+        ></Route>
+        <Route path="/login/company" element={<LoginCompany />}></Route>
+        <Route path="/student-dashboard" element={<StudentDashboard />}></Route>
+        <Route path="/company-dashboard" element={<CompanyDashboard />}></Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

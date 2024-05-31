@@ -2,8 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-
-import userRoutes from "./routes/UserRoutes.js";
+import { UserRouter } from "./routes/UserRoute.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -11,12 +11,16 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+app.use(cookieParser());
+app.use("/auth", UserRouter);
 
-//Routes
-app.use("/user", userRoutes);
-
-//Database Connection
+//DB Connection
 mongoose
   .connect(process.env.MONGODB_URL)
   .then(() => console.log("!!!!!!!!!Database connected!!!!!!!"))
