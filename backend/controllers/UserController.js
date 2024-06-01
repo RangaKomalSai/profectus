@@ -61,10 +61,15 @@ export const registerStudent = async (req, res) => {
       await sendEmail(
         ldapEmail,
         "Verification OTP for registering to Profectus | Abhyuday, IIT Bombay",
-        `Your OTP for verification is ${otp}`
+        `Your OTP for verification is ${otp}. It is valid for only 10 minutes.`
       );
 
-      const otpEntry = new OTP({ email: ldapEmail, otp });
+      const expiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes from now
+      const otpEntry = new OTP({
+        email: ldapEmail,
+        otp: otp,
+        expiresAt: expiresAt,
+      });
       await otpEntry.save();
 
       return res.status(201).json({
@@ -145,7 +150,7 @@ export const loginStudent = async (req, res) => {
       }
     );
 
-    res.cookie("token", token, { httpOnly: true, maxAge: 360000 });
+    res.cookie("token", token, { httpOnly: true, maxAge: 3600000 });
     res.json({ status: true, message: "login successful" });
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
