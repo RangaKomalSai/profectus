@@ -28,6 +28,14 @@ const departments = [
   "Physics",
   "Shailesh J. Mehta School of Management",
 ];
+const years = [
+  "Batch of '28",
+  "Batch of '27",
+  "Batch of '26",
+  "Batch of '25",
+  "Batch of '24",
+  "Other",
+];
 
 const programmeOfStudy = [
   "Undergraduate(UG)",
@@ -42,6 +50,7 @@ function Register() {
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [isAgreed, setIsAgreed] = useState(false);
   const [selectedDepartment, setSelectedDepartment] = useState(false);
+  const [selectedYear, setSelectedYear] = useState(false);
   const [selectedProgramme, setSelectedProgramme] = useState(false);
   const [rollNumber, setRollNumber] = useState("");
   const [formData, setFormData] = useState({
@@ -49,6 +58,7 @@ function Register() {
     contactNumber: "",
     rollNumber: "",
     department: "",
+    year: "",
     programmeOfStudy: "",
     password: "",
     confirmPassword: "",
@@ -68,6 +78,9 @@ function Register() {
 
     if (name === "department") {
       setSelectedDepartment(value !== "");
+    }
+    if (name === "year") {
+      setSelectedYear(value !== "");
     }
     if (name === "programmeOfStudy") {
       setSelectedProgramme(value !== "");
@@ -110,9 +123,11 @@ function Register() {
     }
 
     // Check if department and programme are selected
-    if (!selectedDepartment || !selectedProgramme) {
+    if (!selectedDepartment || !selectedProgramme || !selectedYear) {
       // setErrorMessage("Please select your department and programme of study");
-      toast.error("Please select your department and programme of study");
+      toast.error(
+        "Please select your department, programme of study and year of study"
+      );
 
       return;
     }
@@ -148,38 +163,6 @@ function Register() {
         }, 1000);
       }
     } catch (error) {
-      // try {
-      //   const response = await axios.post(
-      //     "http://localhost:5000/auth/register",
-      //     formData,
-      //     { withCredentials: true }
-      //   );
-      //   if (response.data.status) {
-      //     console.log(response.data);
-
-      //     // Clear password fields after submission
-      //     setFormData({
-      //       ...formData,
-      //       password: "",
-      //       confirmPassword: "",
-      //     });
-      //     toast.promise(response.data.status, {
-      //       loading: "Registering...",
-      //       success: <b>You are Registered!</b>,
-      //       error: <b>Could not register.</b>,
-      //     });
-
-      //     // setSuccessMessage(response.data.message);
-      //     // toast.success(response.data.message);
-      //     setTimeout(() => {
-      //       navigate("/login/student/verify-otp", {
-      //         state: { email: response.data.email },
-      //       });
-      //     }, 5000);
-      //   }
-      // }
-      console.error("Error registering user:", error);
-      // setErrorMessage(error.response.data.message || "An error occurred");
       toast.error(error.response.data.message || "An error occurred");
     } finally {
       setIsLoading(false); // Set loading state to false
@@ -242,6 +225,27 @@ function Register() {
                     style={{ color: "black", width: "100%" }}
                   >
                     {department}
+                  </option>
+                ))}
+              </select>
+              <select
+                className={`w-full ${
+                  selectedYear ? "text-black" : "text-gray-400"
+                } p-4 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                name="year"
+                disabled={isLoading}
+                onChange={handleChange}
+              >
+                <option value="" disabled selected>
+                  Choose your year of study
+                </option>
+                {years.map((year, index) => (
+                  <option
+                    key={index}
+                    value={year}
+                    style={{ color: "black", width: "100%" }}
+                  >
+                    {year}
                   </option>
                 ))}
               </select>

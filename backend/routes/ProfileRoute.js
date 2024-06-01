@@ -18,7 +18,7 @@ const profileDetails = async (req, res) => {
         name,
         department,
         rollNumber,
-        yearOfStudy,
+        year,
         contactNumber,
         programmeOfStudy,
       } = user;
@@ -26,7 +26,7 @@ const profileDetails = async (req, res) => {
         name,
         department,
         rollNumber,
-        yearOfStudy,
+        year,
         contactNumber,
         programmeOfStudy,
       });

@@ -62,10 +62,10 @@ const Table: React.FC<Props> = ({ preferences = {} }) => {
       <table className="table bg-white border-collapse rounded-2xl shadow-md w-9/12 my-8 overflow-hidden">
         <thead className="table__head bg-gray-200">
           <tr className="table__row">
-            <th className="Preference py-4 flex text-right px-2">
+            <th className="Preference py-4 flex px-2 text-center">
               Preference No
             </th>
-            <th className="Company py-4">Company Name</th>
+            <th className="Company py-4 text-center">Company Name</th>
           </tr>
         </thead>
         <tbody className="table__body">
@@ -73,14 +73,14 @@ const Table: React.FC<Props> = ({ preferences = {} }) => {
             Object.entries(preferences).map(([company, preferenceNumber]) => (
               <tr className="table__row hover:bg-gray-100" key={company}>
                 <td
-                  className="table__body__text table__body__text--name px-6 py-4"
+                  className="table__body__text table__body__text--name px-6 py-4 text-center"
                   data-aos="fade-right"
                   data-title="Preference no"
                 >
                   {preferenceNumber}
                 </td>
                 <td
-                  className="table__body__text table__body__text--country px-16 py-4"
+                  className="table__body__text table__body__text--country px-16 py-4 text-center"
                   data-aos="fade-left"
                   data-title="Company name"
                 >

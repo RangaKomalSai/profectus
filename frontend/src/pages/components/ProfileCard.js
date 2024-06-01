@@ -51,9 +51,7 @@ const ProfileCard = () => {
                 <h4 className="font-semibold text-black text-sm">
                   Year of Study
                 </h4>
-                <p className="text-xs mt-2 text-black">
-                  {profileData.yearOfStudy}
-                </p>
+                <p className="text-xs mt-2 text-black">{profileData.year}</p>
               </div>
               <div className="w-30">
                 <h4 className="font-semibold text-black text-sm">Contact</h4>
