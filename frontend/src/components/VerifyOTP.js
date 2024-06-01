@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import NormalNav from "../pages/components/NormalNav.tsx";
 
 function VerifyOTP() {
   // const navigate = useNavigate();
@@ -21,7 +23,6 @@ function VerifyOTP() {
 
   const [otp, setOtp] = useState(["", "", "", ""]);
   const inputRefs = useRef([]);
-  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -61,56 +62,55 @@ function VerifyOTP() {
         }
       );
       console.log(response.data.message); // Handle success message
-      setErrorMessage("");
 
       navigate("/student-dashboard"); // Redirect to dashboard on successful verification
     } catch (error) {
       console.error(error.response?.data?.message || error.message); // Handle error message
-      setErrorMessage(error.response?.data?.message || "An error occurred");
+      // setErrorMessage(error.response?.data?.message || "An error occurred");
+      toast.error(error.response?.data?.message || "An error occurred");
     }
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen flex justify-center items-center text-white py-20">
-      <div
-        className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg lg:max-w-2xl md:max-w-lg lg:mx-4 mx-8"
-        data-aos="zoom-in-up"
-      >
-        <h2 className="text-center text-3xl font-crimson font-bold mb-2">
-          OTP Verification
-        </h2>
-        {errorMessage && (
-          <div className="bg-red-500 text-white p-4 mb-4 text-center">
-            {errorMessage}
-          </div>
-        )}
-        <div className="flex justify-center mb-4 text-gray-600">
-          Please enter the OTP sent to your LDAP Email Id
-        </div>
-        <div className="flex justify-center">
-          {otp.map((digit, index) => (
-            <input
-              key={index}
-              className="w-16 h-16 mr-3 text-center text-lg rounded-xl"
-              type="text"
-              maxLength={1}
-              value={digit}
-              autoFocus={index === 0}
-              ref={(ref) => (inputRefs.current[index] = ref)}
-              onChange={(e) => handleChange(index, e.target.value)}
-              onKeyDown={(e) => handleKeyDown(index, e)}
-            />
-          ))}
-        </div>
-        <button
-          type="button"
-          onClick={handleVerify}
-          className="w-full p-4 rounded-md font-bold bg-black text-white m-2 mt-4"
+    <>
+      <NormalNav />
+      <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen flex justify-center items-center text-white py-20">
+        <div
+          className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg lg:max-w-2xl md:max-w-lg lg:mx-4 mx-8"
+          data-aos="zoom-in-up"
         >
-          Verify OTP
-        </button>
+          <h2 className="text-center text-3xl font-crimson font-bold mb-2">
+            OTP Verification
+          </h2>
+
+          <div className="flex justify-center mb-4 text-gray-600">
+            Please enter the OTP sent to your LDAP Email Id
+          </div>
+          <div className="flex justify-center">
+            {otp.map((digit, index) => (
+              <input
+                key={index}
+                className="w-16 h-16 mr-3 text-center text-lg rounded-xl"
+                type="text"
+                maxLength={1}
+                value={digit}
+                autoFocus={index === 0}
+                ref={(ref) => (inputRefs.current[index] = ref)}
+                onChange={(e) => handleChange(index, e.target.value)}
+                onKeyDown={(e) => handleKeyDown(index, e)}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={handleVerify}
+            className="w-full p-4 rounded-md font-bold bg-black text-white m-2 mt-4"
+          >
+            Verify OTP
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

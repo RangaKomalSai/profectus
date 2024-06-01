@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import NormalNav from "../pages/components/NormalNav.tsx";
 
 function ForgotPassword() {
   const navigate = useNavigate();
 
-  const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
   const [email, setEmail] = useState("");
   const [formData, setFormData] = useState({
     email: "",
@@ -29,14 +29,18 @@ function ForgotPassword() {
     e.preventDefault();
 
     // Validate empty fields
+    let hasEmptyField = false;
+
     for (const key in formData) {
       if (!formData[key]) {
-        setErrorMessage("Email field is required");
-        setTimeout(() => {
-          setErrorMessage("");
-        }, 5000);
-        return;
+        hasEmptyField = true;
+        break;
       }
+    }
+
+    if (hasEmptyField) {
+      toast.error("Please fill out all fields");
+      return;
     }
 
     setIsLoading(true);
@@ -49,23 +53,18 @@ function ForgotPassword() {
 
       if (response.data.status) {
         console.log("success");
-        setSuccessMessage(response.data.message);
+        toast.success(response.data.message);
         setTimeout(() => {
-          setErrorMessage("");
           navigate("/login/student");
-        }, 5000);
+        }, 2000);
       } else {
-        setErrorMessage(response.data.message || "An error occurred");
-        setTimeout(() => {
-          setErrorMessage("");
-        }, 5000);
+        // setErrorMessage(response.data.message || "An error occurred");
+        toast.error(response.data.message || "An error occurred");
       }
     } catch (error) {
       console.error(error.response?.data); // Log the error response
-      setErrorMessage(error.response?.data?.message || "An error occurred");
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 5000);
+      // setErrorMessage(error.response?.data?.message || "An error occurred");
+      toast.error(error.response?.data?.message || "An error occurred");
     } finally {
       setIsLoading(false); // Set loading state to false
     }
@@ -73,16 +72,7 @@ function ForgotPassword() {
 
   return (
     <>
-      {errorMessage && ( // Conditionally render error message
-        <div className="bg-red-500 text-white p-4 fixed w-full text-center">
-          {errorMessage}
-        </div>
-      )}
-      {successMessage && ( // Conditionally render error message
-        <div className="bg-green-500 text-white p-4 fixed w-full text-center">
-          {successMessage}
-        </div>
-      )}
+      <NormalNav />
       <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen flex justify-center items-center text-white py-20">
         <div
           className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg lg:max-w-2xl md:max-w-lg lg:mx-4 mx-8"
@@ -105,14 +95,16 @@ function ForgotPassword() {
               className={"w-full p-4 rounded-md font-bold bg-black text-white "}
               disabled={isLoading}
             >
-              {isLoading ? "Sending..." : "Send Email"}
+              {isLoading ? (
+                <div className="flex items-center justify-center">
+                  <div className="loader mr-2"></div>
+                  Sending...
+                </div>
+              ) : (
+                "Send Email"
+              )}
             </button>
           </form>
-          {isLoading && (
-            <div className="flex justify-center mt-4">
-              <div className="loader"></div>
-            </div>
-          )}
         </div>
       </div>
     </>

@@ -10,6 +10,8 @@ import LoginCompany from "./components/LoginCompany.js";
 import StudentDashboard from "./components/StudentDashboard.js";
 import CompanyDashboard from "./components/CompanyDashboard.js";
 import PageNotFound from "./components/PageNotFound.js";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   useEffect(() => {
@@ -18,12 +20,13 @@ function App() {
       AOS.init({
         duration: 1000,
         easing: "ease",
-        once: true,
+        once: false,
         anchorPlacement: "top-bottom",
       });
     };
 
     initAOS();
+    AOS.refresh();
   }, []);
   return (
     <BrowserRouter>

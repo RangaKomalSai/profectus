@@ -3,11 +3,14 @@ import ngo from "../../images/ngo.png";
 import sd from "../../images/development.png";
 import eco from "../../images/ecosystem.png";
 import why from "../../images/Group_20.png";
+import { Element } from "react-scroll";
 
 const About = () => {
   return (
-    <div
+    <Element
+      name="about"
       className="pt-2 pb-16"
+      id="about"
       style={{
         background:
           "radial-gradient(circle 500px at right top, rgba(35, 121, 171, 0.5), transparent), radial-gradient(circle 500px at left bottom, rgba(35, 121, 171, 0.5), transparent), #0C0C2E",
@@ -19,7 +22,7 @@ const About = () => {
       <div
         data-aos="zoom-in"
         data-aos-anchor-placement="top-center"
-        className="w-4/5 mx-auto items-center mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12"
+        className="w-4/5 mx-auto items-center mt-12 md:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12"
       >
         <div className="mx-auto lg:-mx-0 mb-8 lg:mb-0">
           <img
@@ -122,7 +125,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Element>
   );
 };
 

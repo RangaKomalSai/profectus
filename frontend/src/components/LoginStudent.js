@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import NormalNav from "../pages/components/NormalNav.tsx";
 
 function LoginStudent() {
   axios.defaults.withCredentials = true;
@@ -22,7 +24,6 @@ function LoginStudent() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [selectedTab, setSelectedTab] = useState("student");
-  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     ldap: "",
@@ -63,25 +64,17 @@ function LoginStudent() {
       //   console.log(err);
       // });
       console.log(response.data); // Handle success response
-      setErrorMessage(""); // Clear error message on success
+
       navigate("/student-dashboard");
     } catch (error) {
       console.error(error.response.data); // Handle error message
-      setErrorMessage(error.response.data.message || "An error occurred");
-
-      // Clear error message after 5 seconds
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 5000);
+      // setErrorMessage(error.response.data.message || "An error occurred");
+      toast.error(error.response.data.message || "An error occurred"); // Handle error message
     }
   };
   return (
     <>
-      {errorMessage && ( // Conditionally render error message
-        <div className="bg-red-500 text-white p-4 fixed w-full text-center">
-          {errorMessage}
-        </div>
-      )}
+      <NormalNav />
       <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen flex justify-center items-center text-white py-20">
         <div
           className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg sm:m-6 lg:mx-4 mx-8"

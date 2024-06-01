@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import ResponsiveNav from "../pages/components/ResponsiveNav.tsx";
+import Rules from "../pages/components/Rules.tsx";
 
 function StudentDashboard() {
   const navigate = useNavigate();
@@ -34,10 +36,11 @@ function StudentDashboard() {
       });
   };
   return (
-    <>
-      <div>StudentDashboard</div>
+    <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen">
+      <ResponsiveNav />
+      <Rules />
       <button onClick={handleLogout}>Logout</button>
-    </>
+    </div>
   );
 }
 
