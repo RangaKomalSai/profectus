@@ -19,6 +19,7 @@ app.use(
     credentials: true,
   })
 );
+// app.use(cors());
 app.use(cookieParser());
 app.use("/auth", UserRouter);
 app.use("/api/preferences", PreferenceRoute);

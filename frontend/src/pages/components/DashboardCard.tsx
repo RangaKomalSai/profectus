@@ -79,7 +79,7 @@ const Cards: React.FC<Props> = ({
                   : "bg-blue-600 hover:text-white hover:shadow-blue-600"
               }`}
             >
-              <span className="relative z-100">
+              <span className="relative z-100 text-sm md:text-base text-wrap">
                 {isAdded ? "Remove" : "Add to Preference"}
               </span>
             </button>

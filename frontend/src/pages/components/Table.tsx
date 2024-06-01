@@ -91,17 +91,17 @@ const Table: React.FC<Props> = ({ preferences = {} }) => {
         </tbody>
       </table>
 
-      <div className="w-9/12 flex items-center md:flex-row md:justify-between mb-8">
+      <div className="w-9/12 flex justify-between items-center md:flex-row md:justify-between mb-8 gap-4">
         <input
           type="text"
           placeholder="Drive Link of your Resume"
           value={resume}
           onChange={handleInputChange}
-          className="h-10 w-full md:mr-4 md:h-12 border rounded-lg px-4 shadow-md mb-4 md:mb-0"
+          className="h-10 w-full md:h-12 border rounded-lg px-4 shadow-md md:mb-0"
         />
         <Link onClick={handleClick} to="#">
-          <button className="bg-orange-600 relative h-10 w-full md:w-32 md:h-12 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:w-0 before:rounded-sm before:bg-indigo-600 before:duration-300 before:ease-out hover:text-white hover:shadow-indigo-600 hover:before:h-40 before:hover:w-40 hover:before:opacity-80">
-            <span className="relative z-100">Apply Here</span>
+          <button className="bg-orange-600 relative w-16 h-10 md:w-32 md:h-12 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:w-0 before:rounded-sm before:bg-indigo-600 before:duration-300 before:ease-out hover:text-white hover:shadow-indigo-600 hover:before:h-40 before:hover:w-40 hover:before:opacity-80">
+            <span className="relative z-100">Apply</span>
           </button>
         </Link>
       </div>
