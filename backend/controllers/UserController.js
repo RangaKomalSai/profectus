@@ -150,7 +150,7 @@ export const loginStudent = async (req, res) => {
       }
     );
 
-    res.cookie("token", token, { httpOnly: true, maxAge: 360000 });
+    res.cookie("token", token, { httpOnly: true, maxAge: 3600000 });
     res.json({ status: true, message: "login successful" });
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
