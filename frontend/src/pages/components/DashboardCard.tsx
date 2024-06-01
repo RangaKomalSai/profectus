@@ -42,10 +42,10 @@ const Cards: React.FC<Props> = ({
 
   return (
     <>
-      <Tilt className="parallax-effect" perspective={500}>
+      <Tilt className="parallax-effect" perspective={5000}>
         <div
           className="bg-gray-200 rounded-lg p-6 w-full"
-          data-aos="fade-right"
+          // data-aos="fade-right"
           data-aos-anchor-placement="top-center"
           data-aos-delay="200"
         >

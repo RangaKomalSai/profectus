@@ -82,6 +82,9 @@ const Rules: React.FC = () => {
         </div>
       </div>
 
+      <div className="mt-8">
+        <Table preferences={preferences} />
+      </div>
       <div className="w-[85%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mx-auto gap-8">
         {filteredFoodList.map((item, index) => (
           <Cards
@@ -94,6 +97,8 @@ const Rules: React.FC = () => {
             isAdded={preferences.hasOwnProperty(item.name)}
             preferenceNumber={preferences[item.name]}
             handleAddToPreference={handleAddToPreference}
+            // Add the 'no-animation' class to the first three cards
+            className={index < 3 ? "no-animation" : ""}
           />
         ))}
       </div>
@@ -121,10 +126,6 @@ const Rules: React.FC = () => {
           </div>
         </div>
       )}
-
-      <div className="mt-8">
-        <Table preferences={preferences} />
-      </div>
     </div>
   );
 };
