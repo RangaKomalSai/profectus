@@ -1,11 +1,21 @@
 import React from "react";
 import { CiDiscount1 } from "react-icons/ci";
 import logo from "../../images/Group_21.png";
+import { Element } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/register");
+  };
+
   return (
-    <div
-      className="w-full pt-[4vh] md:pt-[12vh]"
+    <Element
+      name="hero"
+      id="home"
+      className="w-full pt-[12vh] md:pt-[14vh] "
       style={{
         background:
           "radial-gradient(circle 500px at top center, rgba(35, 121, 171, 0.5), transparent), radial-gradient(circle 500px at right bottom, rgba(35, 121, 171, 0.5), transparent), #0C0C2E",
@@ -30,7 +40,7 @@ const Hero = () => {
             <h1
               data-aos="fade-right"
               data-aos-delay="200"
-              className="text-3xl md:text-5xl lg:text-[85px] xl:text-[85px] relative z-[1] md:leading-[4.5rem] leading-[3rem] mt-4 text-white font-bold mb-8 inline-block font-poppins"
+              className="text-5xl md:text-5xl lg:text-[85px] xl:text-[85px] relative z-[1] md:leading-[4.5rem] leading-[3rem] mt-4 text-white font-bold mb-4 md:mb-8 inline-block font-poppins"
             >
               Profectus
               <br />
@@ -46,6 +56,16 @@ const Hero = () => {
               take advantage of fantastic summer internship opportunities in the
               social sector and help bring about positive change.
             </p>
+            <button
+              onClick={handleClick}
+              data-aos="fade-right"
+              data-aos-delay="200"
+              className="bg-orange-600 relative h-10 w-32 md:h-12 md:w-40 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:w-0 before:rounded-sm before:bg-indigo-600 before:duration-300 before:ease-out hover:text-white hover:shadow-indigo-600 hover:before:h-40 before:hover:w-40 hover:before:opacity-80 mt-4"
+            >
+              <span className="relative z-100 font-bold font-nunito tracking-wider text-sm">
+                REGISTER NOW
+              </span>
+            </button>
           </div>
           <div data-aos="fade-right" data-aos-delay="600" className="mx-auto">
             <img
@@ -58,7 +78,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Element>
   );
 };
 

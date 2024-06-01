@@ -10,6 +10,10 @@ module.exports = {
         nunito: ["Nunito", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
       },
+      colors: {
+        // nav: "#122838",
+        nav: "#1f4561",
+      },
     },
   },
   plugins: [],

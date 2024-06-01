@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import NormalNav from "../pages/components/NormalNav.tsx";
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -9,7 +11,6 @@ function ForgotPassword() {
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const [formData, setFormData] = useState({
     password: "",
@@ -24,21 +25,24 @@ function ForgotPassword() {
     e.preventDefault();
 
     // Validate empty fields
+    let hasEmptyField = false;
+
     for (const key in formData) {
       if (!formData[key]) {
-        setErrorMessage("All fields are required");
-        setTimeout(() => {
-          setErrorMessage("");
-        }, 5000);
-        return;
+        hasEmptyField = true;
+        break;
       }
     }
+
+    if (hasEmptyField) {
+      toast.error("Please fill out all fields");
+      return;
+    }
+
     // Validate password
     if (formData.password !== formData.confirmPassword) {
-      setErrorMessage("Passwords do not match");
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 5000);
+      toast.error("Passwords do not match");
+
       return;
     }
 
@@ -48,32 +52,26 @@ function ForgotPassword() {
         .post("http://localhost:5000/auth/reset-password/" + token, formData)
         .then((response) => {
           if (response.data.status) {
-            navigate("/login/student");
+            toast.success("Password changed successfully");
+            setTimeout(() => {
+              navigate("/login/student");
+            }, 1000);
           }
           console.log(response.data);
         })
         .catch((err) => {
           console.log(err);
         }); // Handle success response
-      setErrorMessage(""); // Clear error message on success
     } catch (error) {
       console.error(error.response.data); // Handle error message
-      setErrorMessage(error.response.data.message || "An error occurred");
-
-      // Clear error message after 5 seconds
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 5000);
+      toast.error(error.response.data.message || "An error occurred");
+      // setErrorMessage(error.response.data.message || "An error occurred");
     }
   };
 
   return (
     <>
-      {errorMessage && ( // Conditionally render error message
-        <div className="bg-red-500 text-white p-4 fixed w-full text-center">
-          {errorMessage}
-        </div>
-      )}
+      <NormalNav />
       <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen flex justify-center items-center text-white py-20">
         <div
           className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg lg:max-w-2xl md:max-w-lg lg:mx-4 mx-8"

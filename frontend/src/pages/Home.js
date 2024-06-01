@@ -1,4 +1,5 @@
 import React from "react";
+import ResponsiveNav from "./components/ResponsiveNav.tsx";
 import Hero from "./components/Hero.js";
 import About from "./components/About.js";
 import Testimonials from "./components/Testimonials.tsx";
@@ -9,6 +10,7 @@ import Footer from "./components/Footer.tsx";
 const Home = () => {
   return (
     <div>
+      <ResponsiveNav />
       <Hero />
       <About />
       <Testimonials />

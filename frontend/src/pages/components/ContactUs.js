@@ -5,6 +5,7 @@ import sunny from "../../images/sunny.jpg";
 import { FaEnvelope, FaLinkedin, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading.tsx";
+import { Element } from "react-scroll";
 
 const CampaignsContainer = styled.div`
   background: radial-gradient(
@@ -126,91 +127,93 @@ const Name = styled.h3`
 
 const Campaigns = () => {
   return (
-    <CampaignsContainer>
-      <Wrapper>
-        <section>
-          <SectionHeading heading="CONTACT US" />
-          <Cols>
-            <Col>
-              <div className="container">
-                <div
-                  className="front"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    flexDirection: "column",
-                  }}
-                >
-                  <ProfileCard>
-                    <ImgContainer>
-                      <img src={manasvi} alt="Manasvi" />
-                    </ImgContainer>
-                    <Caption>
-                      <p>Events Manager</p>
-                      <h4 className=" font-lato">7021920836</h4>
-                      <div className="social-links flex pt-2 pb-2 justify-center">
-                        <Link
-                          to="mailto:manasvi.abhyuday@gmail.com"
-                          target="_blank"
-                        >
-                          <FaEnvelope />
-                        </Link>
-                        <Link
-                          to="https://www.linkedin.com/in/manasvi-kushwaha-32191a265/"
-                          target="_blank"
-                        >
-                          <FaLinkedinIn />
-                        </Link>
-                      </div>
-                    </Caption>
-                  </ProfileCard>
-                  <Name>Manasvi</Name>
+    <Element name="contact" id="contact">
+      <CampaignsContainer>
+        <Wrapper>
+          <section>
+            <SectionHeading heading="CONTACT US" />
+            <Cols>
+              <Col>
+                <div className="container">
+                  <div
+                    className="front"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <ProfileCard>
+                      <ImgContainer>
+                        <img src={manasvi} alt="Manasvi" />
+                      </ImgContainer>
+                      <Caption>
+                        <p>Events Manager</p>
+                        <h4 className=" font-lato">7021920836</h4>
+                        <div className="social-links flex pt-2 pb-2 justify-center">
+                          <Link
+                            to="mailto:manasvi.abhyuday@gmail.com"
+                            target="_blank"
+                          >
+                            <FaEnvelope />
+                          </Link>
+                          <Link
+                            to="https://www.linkedin.com/in/manasvi-kushwaha-32191a265/"
+                            target="_blank"
+                          >
+                            <FaLinkedinIn />
+                          </Link>
+                        </div>
+                      </Caption>
+                    </ProfileCard>
+                    <Name>Manasvi</Name>
+                  </div>
                 </div>
-              </div>
-            </Col>
-            <Col>
-              <div className="container">
-                <div
-                  className="front"
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    flexDirection: "column",
-                  }}
-                >
-                  <ProfileCard>
-                    <ImgContainer>
-                      <img src={sunny} alt="Manasvi" />
-                    </ImgContainer>
-                    <Caption>
-                      <p>Events Manager</p>
-                      <h4 className=" font-lato">8852895497</h4>
-                      <div className="social-links flex pt-2 pb-2 justify-center">
-                        <Link
-                          to="mailto:sunnygodara.abhyuday@gmail.com"
-                          target="_blank"
-                        >
-                          <FaEnvelope />
-                        </Link>
-                        <Link
-                          to="http://linkedin.com/in/sunny-godara-97b795279"
-                          target="_blank"
-                        >
-                          <FaLinkedinIn />
-                        </Link>
-                      </div>
-                    </Caption>
-                  </ProfileCard>
-                  <Name>Sunny</Name>
+              </Col>
+              <Col>
+                <div className="container">
+                  <div
+                    className="front"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <ProfileCard>
+                      <ImgContainer>
+                        <img src={sunny} alt="Manasvi" />
+                      </ImgContainer>
+                      <Caption>
+                        <p>Events Manager</p>
+                        <h4 className=" font-lato">8852895497</h4>
+                        <div className="social-links flex pt-2 pb-2 justify-center">
+                          <Link
+                            to="mailto:sunnygodara.abhyuday@gmail.com"
+                            target="_blank"
+                          >
+                            <FaEnvelope />
+                          </Link>
+                          <Link
+                            to="http://linkedin.com/in/sunny-godara-97b795279"
+                            target="_blank"
+                          >
+                            <FaLinkedinIn />
+                          </Link>
+                        </div>
+                      </Caption>
+                    </ProfileCard>
+                    <Name>Sunny</Name>
+                  </div>
                 </div>
-              </div>
-            </Col>
-          </Cols>
-        </section>
-      </Wrapper>
-    </CampaignsContainer>
+              </Col>
+            </Cols>
+          </section>
+        </Wrapper>
+      </CampaignsContainer>
+    </Element>
   );
 };
 
