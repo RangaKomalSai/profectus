@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import DashNav from "../pages/components/DashNav.tsx";
-import Rules from "../pages/components/Rules.tsx";
+import ProfileCard from "./components/ProfileCard.js";
+import DashNav from "./components/DashNav.tsx";
+import DisplayTable from "./components/DisplayTable.tsx";
 
-function StudentDashboard() {
+function Profile() {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
@@ -20,13 +21,15 @@ function StudentDashboard() {
         console.log(res.data);
       });
   }, []);
-
   return (
     <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen">
       <DashNav />
-      <Rules />
+      <ProfileCard />
+      <div className="mt-8">
+        <DisplayTable />
+      </div>
     </div>
   );
 }
 
-export default StudentDashboard;
+export default Profile;

@@ -12,6 +12,7 @@ import CompanyDashboard from "./components/CompanyDashboard.js";
 import PageNotFound from "./components/PageNotFound.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Profile from "./pages/Profile.js";
 
 function App() {
   useEffect(() => {
@@ -46,6 +47,7 @@ function App() {
         ></Route>
         <Route path="/login/company" element={<LoginCompany />}></Route>
         <Route path="/student-dashboard" element={<StudentDashboard />}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
         <Route path="/company-dashboard" element={<CompanyDashboard />}></Route>
       </Routes>
     </BrowserRouter>
