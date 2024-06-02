@@ -1,5 +1,5 @@
 import React from "react";
-import { CiDiscount1 } from "react-icons/ci";
+import { FaHandsHelping } from "react-icons/fa";
 import logo from "../../images/Group_21.png";
 import { Element } from "react-scroll";
 import { useNavigate } from "react-router-dom";
@@ -25,22 +25,21 @@ const Hero = () => {
       }}
     >
       <div className="flex justify-center flex-col w-4/5 h-full mx-auto">
+        <div
+          data-aos="fade-left"
+          className="flex items-center space-x-3 px-6 py-2 w-fit rounded-full border-2 border-gray-300 mt-4"
+        >
+          <FaHandsHelping className="w-6 h-6 text-yellow-300" />
+          <span className="text-xs md:text-sm text-white font-poppins text-opacity-70 text-balance">
+            Inspiring Individuals, Transforming Communities
+          </span>
+        </div>
         <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
-          <div>
-            <div
-              data-aos="fade-left"
-              className="flex items-center space-x-3 px-6 py-2 w-fit rounded-full border-2 border-gray-300"
-            >
-              <CiDiscount1 className="w-6 h-6 text-yellow-300" />
-              <span className="text-xs md:text-lg text-white font-semibold text-opacity-70">
-                Inspiring Individuals, Transforming Communities
-              </span>
-            </div>
-
+          <div className="order-2 lg:order-1">
             <h1
               data-aos="fade-right"
               data-aos-delay="200"
-              className="text-5xl md:text-5xl lg:text-[85px] xl:text-[85px] relative z-[1] md:leading-[4.5rem] leading-[3rem] mt-4 text-white font-bold mb-4 md:mb-8 inline-block font-poppins"
+              className="text-5xl md:text-[60px] lg:text-[85px] xl:text-[85px] relative z-[1] md:leading-[4.5rem] leading-[3rem] mt-4 text-white font-bold mb-4 md:mb-8 inline-block font-poppins"
             >
               Profectus
               <br />
@@ -67,7 +66,11 @@ const Hero = () => {
               </span>
             </button>
           </div>
-          <div data-aos="fade-right" data-aos-delay="600" className="mx-auto">
+          <div
+            data-aos="fade-right"
+            data-aos-delay="600"
+            className="mx-auto order-1 lg:order-2"
+          >
             <img
               src={logo}
               alt="Logo"

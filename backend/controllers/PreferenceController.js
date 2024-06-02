@@ -6,7 +6,10 @@ export const savePreferences = async (req, res) => {
   try {
     const token = req.cookies.token;
     if (!token) {
-      return res.status(401).json({ message: "Unauthorized" });
+      return res.json({
+        status: false,
+        message: "Unauthorized. Please Login again.",
+      });
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -44,7 +47,7 @@ export const savePreferences = async (req, res) => {
       .status(200)
       .json({ status: true, message: "Applied successfully. Check Profile" });
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ status: false, message: "Internal server error" });
   }
 };
 

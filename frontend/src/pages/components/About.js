@@ -49,7 +49,7 @@ const About = () => {
           </p>
 
           <div className="mt-8 flex items-center space-x-8">
-            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center flex-col">
+            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center flex-col flex-shrink-0">
               <img
                 src={ngo}
                 alt="Transformative Opportunities"
@@ -74,7 +74,7 @@ const About = () => {
           </div>
 
           <div className="mt-8 flex items-center space-x-8">
-            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center flex-col">
+            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center flex-col flex-shrink-0">
               <img
                 src={sd}
                 alt="Skill Development"
@@ -99,7 +99,7 @@ const About = () => {
           </div>
 
           <div className="mt-8 flex items-center space-x-8">
-            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center flex-col">
+            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center flex-col flex-shrink-0">
               <img
                 src={eco}
                 alt="Creating Sustainable Change"
