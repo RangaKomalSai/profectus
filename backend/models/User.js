@@ -25,6 +25,11 @@ const UserSchema = new Schema(
       required: true,
       trim: true,
     },
+    year: {
+      type: String,
+      required: true,
+      trim: true,
+    },
     programmeOfStudy: {
       type: String,
       required: true,

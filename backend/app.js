@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import { UserRouter } from "./routes/UserRoute.js";
+import PreferenceRoute from "./routes/PreferenceRoute.js";
+import ProfileRoute from "./routes/ProfileRoute.js";
 import cookieParser from "cookie-parser";
 
 dotenv.config();
@@ -17,8 +19,11 @@ app.use(
     credentials: true,
   })
 );
+// app.use(cors());
 app.use(cookieParser());
 app.use("/auth", UserRouter);
+app.use("/api/preferences", PreferenceRoute);
+app.use("/api/profile", ProfileRoute);
 
 //DB Connection
 mongoose

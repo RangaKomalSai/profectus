@@ -14,6 +14,7 @@ export const registerStudent = async (req, res) => {
       contactNumber,
       rollNumber,
       department,
+      year,
       programmeOfStudy,
       password,
       confirmPassword,
@@ -24,6 +25,7 @@ export const registerStudent = async (req, res) => {
       !contactNumber ||
       !rollNumber ||
       !department ||
+      !year ||
       !programmeOfStudy ||
       !password ||
       !confirmPassword
@@ -48,6 +50,7 @@ export const registerStudent = async (req, res) => {
       contactNumber,
       rollNumber,
       department,
+      year,
       programmeOfStudy,
       password: hashedPassword,
     });
