@@ -6,7 +6,10 @@ export const savePreferences = async (req, res) => {
   try {
     const token = req.cookies.token;
     if (!token) {
-      return res.status(401).json({ message: "Unauthorized" });
+      return res.json({
+        status: false,
+        message: "Unauthorized. Please Login again.",
+      });
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);

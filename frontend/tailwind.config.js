@@ -14,6 +14,10 @@ module.exports = {
         // nav: "#122838",
         nav: "#1f4561",
       },
+      screens: {
+        "300px": "300px",
+        "400px": "400px",
+      },
     },
   },
   plugins: [],
