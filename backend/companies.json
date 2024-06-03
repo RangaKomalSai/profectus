@@ -1,0 +1,227 @@
+[
+    {
+     "company_id": "1",
+      "name": "Greek salad",
+      "email": "GreekSalad@abhyuday.com",
+      "password": "1a2b3c4d",
+      "role": "company"
+    },
+    {
+      "company_id": "2",
+      "name": "Veg salad",
+      "email": "VegSalad@abhyuday.com",
+      "password": "2b3c4d5e",
+      "role": "company"
+    },
+    {
+      "company_id": "3",
+      "name": "Clover Salad",
+      "email": "CloverSalad@abhyuday.com",
+      "password": "3c4d5e6f",
+      "role": "company"
+    },
+    {
+      "company_id": "4",
+      "name": "Chicken Salad",
+      "email": "ChickenSalad@abhyuday.com",
+      "password": "4d5e6f7g",
+      "role": "company"
+    },
+    {
+      "company_id": "5",
+      "name": "Lasagna Rolls",
+      "email": "LasagnaRolls@abhyuday.com",
+      "password": "5e6f7g8h",
+      "role": "company"
+    },
+    {
+      "company_id": "6",
+      "name": "Peri Peri Rolls",
+      "email": "PeriPeriRolls@abhyuday.com",
+      "password": "6f7g8h9i",
+      "role": "company"
+    },
+    {
+      "company_id": "7",
+      "name": "Chicken Rolls",
+      "email": "ChickenRolls@abhyuday.com",
+      "password": "7g8h9i0j",
+      "role": "company"
+    },
+    {
+      "company_id": "8",
+      "name": "Veg Rolls",
+      "email": "VegRolls@abhyuday.com",
+      "password": "8h9i0j1k",
+      "role": "company"
+    },
+    {
+      "company_id": "9",
+      "name": "Ripple Ice Cream",
+      "email": "RippleIceCream@abhyuday.com",
+      "password": "9i0j1k2l",
+      "role": "company"
+    },
+    {
+      "company_id": "10",
+      "name": "Fruit Ice Cream",
+      "email": "FruitIceCream@abhyuday.com",
+      "password": "0j1k2l3m",
+      "role": "company"
+    },
+    {
+      "company_id": "11",
+      "name": "Jar Ice Cream",
+      "email": "JarIceCream@abhyuday.com",
+      "password": "1k2l3m4n",
+      "role": "company"
+    },
+    {
+      "company_id": "12",
+      "name": "Vanilla Ice Cream",
+      "email": "VanillaIceCream@abhyuday.com",
+      "password": "2l3m4n5o",
+      "role": "company"
+    },
+    {
+      "company_id": "13",
+      "name": "Chicken Sandwich",
+      "email": "ChickenSandwich@abhyuday.com",
+      "password": "3m4n5o6p",
+      "role": "company"
+    },
+    {
+      "company_id": "14",
+      "name": "Vegan Sandwich",
+      "email": "VeganSandwich@abhyuday.com",
+      "password": "4n5o6p7q",
+      "role": "company"
+    },
+    {
+      "company_id": "15",
+      "name": "Grilled Sandwich",
+      "email": "GrilledSandwich@abhyuday.com",
+      "password": "5o6p7q8r",
+      "role": "company"
+    },
+    {
+      "company_id": "16",
+      "name": "Bread Sandwich",
+      "email": "BreadSandwich@abhyuday.com",
+      "password": "6p7q8r9s",
+      "role": "company"
+    },
+    {
+      "company_id": "17",
+      "name": "Cup Cake",
+      "email": "CupCake@abhyuday.com",
+      "password": "7q8r9s0t",
+      "role": "company"
+    },
+    {
+      "company_id": "18",
+      "name": "Vegan Cake",
+      "email": "VeganCake@abhyuday.com",
+      "password": "8r9s0t1u",
+      "role": "company"
+    },
+    {
+      "company_id": "19",
+      "name": "Butterscotch Cake",
+      "email": "ButterscotchCake@abhyuday.com",
+      "password": "9s0t1u2v",
+      "role": "company"
+    },
+    {
+      "company_id": "20",
+      "name": "Sliced Cake",
+      "email": "SlicedCake@abhyuday.com",
+      "password": "0t1u2v3w",
+      "role": "company"
+    },
+    {
+      "company_id": "21",
+      "name": "Garlic Mushroom",
+      "email": "GarlicMushroom@abhyuday.com",
+      "password": "1u2v3w4x",
+      "role": "company"
+    },
+    {
+      "company_id": "22",
+      "name": "Fried Cauliflower",
+      "email": "FriedCauliflower@abhyuday.com",
+      "password": "2v3w4x5y",
+      "role": "company"
+    },
+    {
+      "company_id": "23",
+      "name": "Mix Veg Pulao",
+      "email": "MixVegPulao@abhyuday.com",
+      "password": "3w4x5y6z",
+      "role": "company"
+    },
+    {
+      "company_id": "24",
+      "name": "Rice Zucchini",
+      "email": "RiceZucchini@abhyuday.com",
+      "password": "4x5y6z7a",
+      "role": "company"
+    },
+    {
+      "company_id": "25",
+      "name": "Cheese Pasta",
+      "email": "CheesePasta@abhyuday.com",
+      "password": "5y6z7a8b",
+      "role": "company"
+    },
+    {
+      "company_id": "26",
+      "name": "Tomato Pasta",
+      "email": "TomatoPasta@abhyuday.com",
+      "password": "6z7a8b9c",
+      "role": "company"
+    },
+    {
+      "company_id": "27",
+      "name": "Creamy Pasta",
+      "email": "CreamyPasta@abhyuday.com",
+      "password": "7a8b9c0d",
+      "role": "company"
+    },
+    {
+      "company_id": "28",
+      "name": "Chicken Pasta",
+      "email": "ChickenPasta@abhyuday.com",
+      "password": "8b9c0d1e",
+      "role": "company"
+    },
+    {
+      "company_id": "29",
+      "name": "Buttter Noodles",
+      "email": "ButtterNoodles@abhyuday.com",
+      "password": "9c0d1e2f",
+      "role": "company"
+    },
+    {
+      "company_id": "30",
+      "name": "Veg Noodles",
+      "email": "VegNoodles@abhyuday.com",
+      "password": "0d1e2f3g",
+      "role": "company"
+    },
+    {
+      "company_id": "31",
+      "name": "Somen Noodles",
+      "email": "SomenNoodles@abhyuday.com",
+      "password": "1e2f3g4h",
+      "role": "company"
+    },
+    {
+      "company_id": "32",
+      "name": "Cooked Noodles",
+      "email": "CookedNoodles@abhyuday.com",
+      "password": "2f3g4h5i",
+      "role": "company"
+    }
+  ]
+  
