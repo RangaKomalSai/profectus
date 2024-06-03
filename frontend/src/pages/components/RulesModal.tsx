@@ -27,7 +27,7 @@ const RulesModal: React.FC<RulesModalProps> = ({ show, onClose, rules }) => {
     <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-11/12 max-w-lg mx-auto relative overflow-y-auto max-h-[80vh] mb-[10vh] mt-[20vh] custom-scrollbar">
         <h2 className="text-xl font-semibold mb-4">Rules</h2>
-        <ul className="list-disc list-inside mb-4 text-gray-700">
+        <ul className="list-disc list-inside mb-4 text-gray-700 ml-2">
           {rules.map((rule, index) => (
             <li key={index} className="mb-2">
               {rule}

@@ -29,6 +29,9 @@ const DashNav = ({ openNav }) => {
   const handleRulesClick = () => {
     setIsModalOpen(true);
   };
+  const handleHomeClick = () => {
+    window.scrollTo(0, 0);
+  };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -54,50 +57,59 @@ const DashNav = ({ openNav }) => {
   }, []);
 
   const rules = [
-    "Rule 1: Follow the guidelines.",
-    "Rule 2: Maintain discipline.",
-    "Rule 3: Respect deadlines.",
-    "Rule 4: Be honest and transparent.",
-    "Rule 5: Collaborate effectively.",
-    "Rule 1: Follow the guidelines.",
-    "Rule 2: Maintain discipline.",
-    "Rule 3: Respect deadlines.",
-    "Rule 4: Be honest and transparent.",
-    "Rule 5: Collaborate effectively.",
-    "Rule 1: Follow the guidelines.",
-    "Rule 2: Maintain discipline.",
-    "Rule 3: Respect deadlines.",
-    "Rule 4: Be honest and transparent.",
-    "Rule 5: Collaborate effectively.",
-    "Rule 1: Follow the guidelines.",
-    "Rule 2: Maintain discipline.",
-    "Rule 3: Respect deadlines.",
-    "Rule 4: Be honest and transparent.",
-    "Rule 5: Collaborate effectively.",
+    "A report of each fellow would be submitted to the Dean of student affairs at the end of their fellowship tenure.",
+
+    "Candidate must upload a drive link in which the one page resume and two page resume should be present in a PDF format.",
+
+    "The PDF file name must be Roll_Number.pdf where 'Roll_Number' is your IIT Bombay enrolled roll number.",
+    "If a candidate is found to be involved in any malpractices during the fellowship duration, quits the fellowship before completing the designated duration, or rejects the fellowship after accepting it, this will result in bad remarks being noted in their final report, which will be sent to the Dean of Student Affairs.",
+
+    "Students can use RESUME RESOURCES to create a PDF resume following all guidelines. They can upload up to three resumes during the application process.",
+
+    "Students applying through Profectus  must not approach startups outside the portal. Violators will be blacklisted.",
+    "Selected students will receive an offer letter and must respond to confirm their availability. Failure to respond will be taken as non-availability, resulting in the application being dropped.",
+
+    "The shortlist will be posted in the blog section of the website and the interview schedule will be emailed.",
   ];
 
   return (
     <>
       <div
         className={`fixed w-full transition-all duration-200 z-[1000] ${
-          navSticky ? "bg-gradient-to-b from-[#1d1d6d] to-[#071823]" : "bg-nav"
+          navSticky
+            ? "bg-gradient-to-b from-[#1d1d6d] to-[#071823]"
+            : "bg-[#2b387a]"
         }`}
       >
         <div className="flex items-center h-[10vh] lg:h-[12vh] justify-between w-4/5 mx-auto">
           <div className="font-bold text-white text-2xl">
-            <Link to="/student-dashboard">
-              <img src={ablogo} alt="Logo" className="w-32 md:w-48" />
+            <Link to="/student-dashboard" onClick={handleHomeClick}>
+              <img src={ablogo} alt="Logo" className="w-24 md:w-40" />
             </Link>
           </div>
           <ul className="lg:flex hidden items-center space-x-10 lg:space-x-12 xl:space-x-14">
             <li className="hover: cursor-pointer">
-              <Link to="/student-dashboard" className="nav_link">
+              <Link
+                to="/student-dashboard"
+                className="nav_link"
+                onClick={handleHomeClick}
+              >
                 Home
               </Link>
             </li>
             <li className="hover: cursor-pointer">
               <Link to="#" className="nav_link" onClick={handleRulesClick}>
                 Rules
+              </Link>
+            </li>
+            <li className="hover: cursor-pointer">
+              <Link to="#" className="nav_link">
+                Blog
+              </Link>
+            </li>
+            <li className="hover: cursor-pointer">
+              <Link to="#" className="nav_link">
+                Resources
               </Link>
             </li>
             <li className="hover: cursor-pointer">

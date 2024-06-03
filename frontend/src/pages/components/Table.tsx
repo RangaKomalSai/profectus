@@ -62,9 +62,7 @@ const Table: React.FC<Props> = ({ preferences = {} }) => {
       <table className="table bg-white border-collapse rounded-2xl shadow-md w-9/12 my-8 overflow-hidden">
         <thead className="table__head bg-gray-200">
           <tr className="table__row">
-            <th className="Preference py-4 flex px-2 text-center">
-              Preference No
-            </th>
+            <th className="Preference py-4 text-center">Preference No</th>
             <th className="Company py-4 text-center">Company Name</th>
           </tr>
         </thead>

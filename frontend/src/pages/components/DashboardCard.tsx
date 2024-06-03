@@ -67,7 +67,7 @@ const Cards: React.FC<Props> = ({
           <div className="flex justify-center items-center h-full space-x-4">
             <button
               onClick={togglePopup}
-              className="bg-orange-600 relative h-10 w-32 md:h-12 md:w-40 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:w-0 before:rounded-sm before:bg-indigo-600 before:duration-300 before:ease-out hover:text-white hover:shadow-indigo-600 hover:before:h-40 before:hover:w-40 hover:before:opacity-80"
+              className="bg-[#f58b11] relative h-10 w-32 md:h-12 md:w-40 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:w-0 before:rounded-sm before:bg-indigo-600 before:duration-300 before:ease-out hover:text-white hover:shadow-indigo-600 hover:before:h-40 before:hover:w-40 hover:before:opacity-80"
             >
               <span className="relative z-100">Read More</span>
             </button>
@@ -76,7 +76,7 @@ const Cards: React.FC<Props> = ({
               className={`relative h-10 w-32 md:h-12 md:w-40 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 ${
                 isAdded
                   ? "bg-red-600 hover:text-white hover:shadow-red-600"
-                  : "bg-blue-600 hover:text-white hover:shadow-blue-600"
+                  : "bg-[#4255b3] hover:text-white hover:shadow-[#1f4561]"
               }`}
             >
               <span className="relative z-100 text-sm md:text-base text-wrap">

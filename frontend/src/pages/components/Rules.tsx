@@ -71,7 +71,7 @@ const Rules: React.FC = () => {
               key={index}
               className={`px-4 py-2 m-2 ${
                 selectedCategory === category
-                  ? "bg-blue-500 text-white"
+                  ? "bg-[#4255b3] text-white"
                   : "bg-gray-200"
               } rounded`}
               onClick={() => handleCategoryClick(category)}

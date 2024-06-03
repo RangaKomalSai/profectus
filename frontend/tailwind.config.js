@@ -9,6 +9,8 @@ module.exports = {
         lato: ["Lato", "sans-serif"],
         nunito: ["Nunito", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        outfit: ["Outfit", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
       colors: {
         // nav: "#122838",

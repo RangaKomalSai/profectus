@@ -79,11 +79,11 @@ function VerifyOTP() {
           className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg lg:max-w-2xl md:max-w-lg lg:mx-4 mx-8"
           data-aos="zoom-in-up"
         >
-          <h2 className="text-center text-3xl font-crimson font-bold mb-2">
+          <h2 className="text-center text-3xl font-outfit font-bold mb-2">
             OTP Verification
           </h2>
 
-          <div className="flex justify-center mb-4 text-gray-600">
+          <div className="flex justify-center mb-4 text-gray-600 font-roboto">
             Please enter the OTP sent to your LDAP Email Id
           </div>
           <div className="flex justify-center">
@@ -104,7 +104,7 @@ function VerifyOTP() {
           <button
             type="button"
             onClick={handleVerify}
-            className="w-full p-4 rounded-md font-bold bg-black text-white m-2 mt-4"
+            className="w-full p-4 rounded-md font-roboto font-bold bg-black text-white m-2 mt-4"
           >
             Verify OTP
           </button>

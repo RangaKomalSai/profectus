@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import DashNav from "../pages/components/DashNav.tsx";
+import ResponsiveDashNav from "../pages/components/ResponsiveDashNav.tsx";
 import Rules from "../pages/components/Rules.tsx";
 
 function StudentDashboard() {
@@ -22,8 +22,8 @@ function StudentDashboard() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen">
-      <DashNav />
+    <div className="bg-gradient-to-b from-[#0C0C33] to-[#050145] min-h-screen">
+      <ResponsiveDashNav />
       <Rules />
     </div>
   );

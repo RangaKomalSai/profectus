@@ -66,10 +66,10 @@ function LoginCompany() {
           className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg sm:m-6 lg:mx-4 mx-8"
           data-aos="zoom-in-up"
         >
-          <div className="flex justify-center space-x-2 p-4 mb-6">
+          <div className="flex justify-center space-x-2 p-4 mb-6 font-outfit">
             <button
               onClick={() => handleTabClick("student")}
-              className={`text-md md:text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
+              className={`text-md md:text-2xl font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
                 selectedTab === "student"
                   ? "bg-black text-white border border-white"
                   : "bg-white bg-opacity-60 text-gray-500 hover:bg-opacity-100 hover:text-black"
@@ -79,7 +79,7 @@ function LoginCompany() {
             </button>
             <button
               onClick={() => handleTabClick("company")}
-              className={`text-md md:text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
+              className={`text-md md:text-2xl font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
                 selectedTab === "company"
                   ? "bg-black text-white border border-white"
                   : "bg-white bg-opacity-60 text-gray-500 hover:bg-opacity-100 hover:text-black"
@@ -88,7 +88,7 @@ function LoginCompany() {
               COMPANY LOGIN
             </button>
           </div>
-          <form className="space-y-8" onSubmit={handleSubmit}>
+          <form className="space-y-8 font-roboto" onSubmit={handleSubmit}>
             <input
               type="email"
               name="email"

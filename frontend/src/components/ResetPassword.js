@@ -77,10 +77,10 @@ function ForgotPassword() {
           className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg lg:max-w-2xl md:max-w-lg lg:mx-4 mx-8"
           data-aos="zoom-in-up"
         >
-          <h2 className="text-center text-3xl font-crimson font-bold mb-6">
+          <h2 className="text-center text-3xl font-outfit font-bold mb-6">
             RESET PASSWORD
           </h2>
-          <form className="space-y-8" onSubmit={handleSubmit}>
+          <form className="space-y-8 font-roboto" onSubmit={handleSubmit}>
             <div className="relative">
               <input
                 type={passwordVisible ? "text" : "password"}
@@ -116,7 +116,9 @@ function ForgotPassword() {
             </div>
             <button
               type="submit"
-              className={"w-full p-4 rounded-md font-bold bg-black text-white "}
+              className={
+                "w-full p-4 rounded-md font-roboto font-bold bg-black text-white "
+              }
             >
               Change Password
             </button>

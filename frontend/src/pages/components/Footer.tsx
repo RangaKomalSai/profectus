@@ -15,7 +15,7 @@ function Footer() {
         overflow: "hidden",
       }}
     >
-      <div className="p-5 md:max-w-sm lg:max-w-md">
+      <div className="p-5 md:max-w-sm lg:max-w-md" data-aos="fade-up">
         <ul>
           <img
             src={logo}
@@ -59,7 +59,7 @@ function Footer() {
         </ul>
       </div>
       <div className="p-5">{/* Your content here */}</div>
-      <div className="p-5">
+      <div className="p-5" data-aos="fade-up">
         <ul>
           <p className="text-gray-20 font-bold text-2xl pb-4">QUICK LINKS</p>
           <li className="text-gray-50 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
@@ -90,7 +90,7 @@ function Footer() {
           </li>
         </ul>
       </div>
-      <div className="p-5">
+      <div className="p-5" data-aos="fade-up">
         <ul>
           <p className="text-gray-20 font-bold text-2xl pb-4">REACH OUT</p>
           <li className="text-gray-50 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
