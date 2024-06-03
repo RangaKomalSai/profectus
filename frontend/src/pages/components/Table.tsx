@@ -60,13 +60,13 @@ const Table: React.FC<Props> = ({ preferences = {} }) => {
   return (
     <div className="container mx-auto flex flex-col items-center rounded-2xl">
       <table className="table bg-white border-collapse rounded-2xl shadow-md w-9/12 my-8 overflow-hidden">
-        <thead className="table__head bg-gray-200">
+        <thead className="table__head bg-gray-200 font-outfit">
           <tr className="table__row">
             <th className="Preference py-4 text-center">Preference No</th>
             <th className="Company py-4 text-center">Company Name</th>
           </tr>
         </thead>
-        <tbody className="table__body">
+        <tbody className="table__body font-roboto">
           {preferences &&
             Object.entries(preferences).map(([company, preferenceNumber]) => (
               <tr className="table__row hover:bg-gray-100" key={company}>
@@ -95,11 +95,11 @@ const Table: React.FC<Props> = ({ preferences = {} }) => {
           placeholder="Drive Link of your Resume"
           value={resume}
           onChange={handleInputChange}
-          className="h-10 w-full md:h-12 border rounded-lg px-4 shadow-md md:mb-0"
+          className="h-10 w-full md:h-12 border rounded-lg px-4 shadow-md md:mb-0 font-roboto"
         />
         <Link onClick={handleClick} to="#">
           <button className="bg-orange-600 relative w-16 h-10 md:w-32 md:h-12 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:w-0 before:rounded-sm before:bg-indigo-600 before:duration-300 before:ease-out hover:text-white hover:shadow-indigo-600 hover:before:h-40 before:hover:w-40 hover:before:opacity-80">
-            <span className="relative z-100">Apply</span>
+            <span className="relative z-100 font-roboto">Apply</span>
           </button>
         </Link>
       </div>

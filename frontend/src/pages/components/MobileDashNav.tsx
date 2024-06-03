@@ -36,7 +36,7 @@ const MobileDashNav = ({ closeNav, showNav }: Props) => {
       .then((res) => {
         if (res.data.status) {
           toast.success("Logged out successfully");
-          navigate("/login/student");
+          navigate("/");
         }
       })
       .catch((err) => {
@@ -79,7 +79,7 @@ const MobileDashNav = ({ closeNav, showNav }: Props) => {
     "The PDF file name must be Roll_Number.pdf where 'Roll_Number' is your IIT Bombay enrolled roll number.",
     "If a candidate is found to be involved in any malpractices during the fellowship duration, quits the fellowship before completing the designated duration, or rejects the fellowship after accepting it, this will result in bad remarks being noted in their final report, which will be sent to the Dean of Student Affairs.",
 
-    "Students can use RESUME RESOURCES to create a PDF resume following all guidelines. They can upload up to three resumes during the application process.",
+    "Students can use RESUME RESOURCES to create a PDF resume following all guidelines.",
 
     "Students applying through Profectus  must not approach startups outside the portal. Violators will be blacklisted.",
     "Selected students will receive an offer letter and must respond to confirm their availability. Failure to respond will be taken as non-availability, resulting in the application being dropped.",
@@ -95,7 +95,7 @@ const MobileDashNav = ({ closeNav, showNav }: Props) => {
         ></div>
 
         <ul
-          className={`text-white ${navOpenStyle} fixed flex items-center justify-center flex-col h-[100%] transform transition-all duration-300 delay-300 w-4/5 md:w-[60%] bg-blue-900 space-y-14 z-[1009]`}
+          className={`text-white ${navOpenStyle} fixed flex items-center justify-center flex-col h-[100%] transform transition-all duration-300 delay-300 w-4/5 md:w-[60%] bg-blue-900 space-y-14 z-[1009] font-outfit`}
         >
           <li>
             <Link
@@ -146,7 +146,7 @@ const MobileDashNav = ({ closeNav, showNav }: Props) => {
             onClick={handleLogout}
             className="bg-orange-600 relative h-10 w-32 md:h-12 md:w-40 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:w-0 before:rounded-sm before:bg-indigo-600 before:duration-300 before:ease-out hover:text-white hover:shadow-indigo-600 hover:before:h-40 before:hover:w-40 hover:before:opacity-80"
           >
-            <span className="relative z-100 font-bold font-nunito tracking-wider">
+            <span className="relative z-100 font-bold font-outfit tracking-wider">
               LOGOUT
             </span>
           </button>

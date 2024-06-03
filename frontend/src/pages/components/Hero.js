@@ -51,7 +51,7 @@ const Hero = () => {
             <p
               data-aos="fade-left"
               data-aos-delay="400"
-              className="mt-2 mb-4 text-lg sm:text-2xl md:text-3xl lg:text-[25px] xl:text-3xl text-white font-roboto text-pretty"
+              className="mt-2 mb-4 text-lg sm:text-2xl md:text-3xl lg:text-[22px] xl:text-[28px] text-white font-poppins text-pretty"
             >
               Fellowship Program Of Abhyuday
             </p>

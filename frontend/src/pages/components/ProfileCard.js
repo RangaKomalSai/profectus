@@ -25,7 +25,7 @@ const ProfileCard = () => {
     <div className="flex justify-center items-center pt-[10vh]">
       <div
         data-aos="zoom-in"
-        className="flex flex-col justify-center lg:mt-20 items-center mb-8 gap-4 text-center border border-opacity-30 transition-colors duration-500 ease-in-out rounded-lg hover:border-opacity-100 p-6  lg:mt-15 mt-12 bg-red-100"
+        className="flex flex-col justify-center lg:mt-20 items-center mb-8 gap-4 text-center border border-opacity-30 transition-colors duration-500 ease-in-out rounded-lg hover:border-opacity-100 p-6  lg:mt-15 mt-12 bg-white bg-opacity-50"
       >
         {profileData && (
           <>
@@ -36,32 +36,42 @@ const ProfileCard = () => {
               height={150}
               className="rounded-full object-cover"
             />
-            <p className="font-semibold text-black">{profileData.name}</p>
-            <span className="text-gray-400 text-sm">
+            <p className="font-semibold font-outfit uppercase text-black">
+              {profileData.name}
+            </p>
+            <span className="text-gray-400 text-sm font-poppins">
               {profileData.department}
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-12 mt-4">
               <div className="w-30">
-                <h4 className="font-semibold text-black text-sm">Roll No.</h4>
-                <p className="text-xs mt-2 text-black">
+                <h4 className="font-semibold text-black text-sm font-outfit">
+                  Roll No.
+                </h4>
+                <p className="text-xs mt-2 text-black font-roboto">
                   {profileData.rollNumber}
                 </p>
               </div>
               <div className="w-30">
-                <h4 className="font-semibold text-black text-sm">
+                <h4 className="font-semibold text-black text-sm font-outfit">
                   Year of Study
                 </h4>
-                <p className="text-xs mt-2 text-black">{profileData.year}</p>
+                <p className="text-xs mt-2 text-black font-roboto">
+                  {profileData.year}
+                </p>
               </div>
               <div className="w-30">
-                <h4 className="font-semibold text-black text-sm">Contact</h4>
-                <p className="text-xs mt-2 text-black">
+                <h4 className="font-semibold text-black text-sm font-outfit">
+                  Contact
+                </h4>
+                <p className="text-xs mt-2 text-black font-roboto">
                   {profileData.contactNumber}
                 </p>
               </div>
               <div className="w-30">
-                <h4 className="font-semibold text-black text-sm">Programme</h4>
-                <p className="text-xs mt-2 text-black">
+                <h4 className="font-semibold text-black text-sm font-outfit">
+                  Programme
+                </h4>
+                <p className="text-xs mt-2 text-black font-roboto">
                   {profileData.programmeOfStudy}
                 </p>
               </div>

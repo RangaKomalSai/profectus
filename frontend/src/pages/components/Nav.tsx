@@ -41,7 +41,7 @@ const Nav = ({ openNav }) => {
     >
       <div className="flex items-center h-[10vh] lg:h-[12vh] justify-between w-4/5 mx-auto">
         <div className="font-bold text-white text-2xl">
-          <Link to="/">
+          <Link to="home" smooth={true} duration={500}>
             <img src={ablogo} alt="Logo" className="w-32 md:w-48" />
           </Link>
         </div>

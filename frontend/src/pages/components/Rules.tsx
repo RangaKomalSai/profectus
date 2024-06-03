@@ -65,7 +65,11 @@ const Rules: React.FC = () => {
           <FaFilter />
         </button>
 
-        <div className={`md:flex ${showCategories ? "block" : "hidden"}`}>
+        <div
+          className={`md:flex font-poppins ${
+            showCategories ? "block" : "hidden"
+          }`}
+        >
           {categories.map((category, index) => (
             <button
               key={index}
@@ -97,35 +101,9 @@ const Rules: React.FC = () => {
             isAdded={preferences.hasOwnProperty(item.name)}
             preferenceNumber={preferences[item.name]}
             handleAddToPreference={handleAddToPreference}
-            // Add the 'no-animation' class to the first three cards
-            className={index < 3 ? "no-animation" : ""}
           />
         ))}
       </div>
-
-      <div className="mt-8 text-center">
-        {preferenceCount > 0 && (
-          <p className="text-lg">
-            Selected Preferences: {Object.keys(preferences).join(", ")}
-          </p>
-        )}
-      </div>
-
-      {showAlert && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-11/12 max-w-lg mx-auto relative">
-            <button
-              onClick={closeAlert}
-              className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 text-2xl font-bold"
-            >
-              &times;
-            </button>
-            <p className="text-center text-black text-base">
-              You are only allowed to select up to 5 preferences.
-            </p>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -116,7 +116,7 @@ export const verifyOTP = async (req, res) => {
       }
     );
 
-    res.cookie("token", token, { httpOnly: true, maxAge: 360000 });
+    res.cookie("token", token, { httpOnly: true, maxAge: 3600000 });
 
     return res.status(200).send({
       status: true,
@@ -184,7 +184,7 @@ export const loginCompany = async (req, res) => {
       }
     );
 
-    res.cookie("token", token, { httpOnly: true, maxAge: 360000 });
+    res.cookie("token", token, { httpOnly: true, maxAge: 3600000 });
     res.status(200).json({ token, message: "Login successful" });
   } catch (error) {
     res.status(500).json({ status: false, message: "Internal server error" });

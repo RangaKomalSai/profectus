@@ -56,7 +56,7 @@ const Cards: React.FC<Props> = ({
               className="mx-auto mt-8 mb-8 border-2 border-gray-900 rounded-lg"
             />
           </div>
-          <h1 className="text-center font-semibold capitalize text-xl">
+          <h1 className="text-center font-outfit font-semibold capitalize text-xl">
             {name}
           </h1>
           <p className="text-center text-black text-opacity-70 mt-5 mb-5">
@@ -69,7 +69,7 @@ const Cards: React.FC<Props> = ({
               onClick={togglePopup}
               className="bg-[#f58b11] relative h-10 w-32 md:h-12 md:w-40 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:w-0 before:rounded-sm before:bg-indigo-600 before:duration-300 before:ease-out hover:text-white hover:shadow-indigo-600 hover:before:h-40 before:hover:w-40 hover:before:opacity-80"
             >
-              <span className="relative z-100">Read More</span>
+              <span className="relative z-100 font-roboto">Read More</span>
             </button>
             <button
               onClick={() => handleAddToPreference(name)}
@@ -79,7 +79,7 @@ const Cards: React.FC<Props> = ({
                   : "bg-[#4255b3] hover:text-white hover:shadow-[#1f4561]"
               }`}
             >
-              <span className="relative z-100 text-sm md:text-base text-wrap">
+              <span className="relative z-100 text-sm md:text-base text-wrap font-roboto">
                 {isAdded ? "Remove" : "Add to Preference"}
               </span>
             </button>
