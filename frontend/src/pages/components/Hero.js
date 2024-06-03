@@ -3,6 +3,7 @@ import { FaHandsHelping } from "react-icons/fa";
 import logo from "../../images/Group_21.png";
 import { Element } from "react-scroll";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -25,15 +26,17 @@ const Hero = () => {
       }}
     >
       <div className="flex justify-center flex-col w-4/5 h-full mx-auto">
-        <div
-          data-aos="fade-left"
-          className="flex items-center space-x-3 px-6 py-2 w-fit rounded-full border-2 border-gray-300 mt-4"
-        >
-          <FaHandsHelping className="w-6 h-6 text-yellow-300" />
-          <span className="text-xs md:text-sm text-white font-roboto text-opacity-70 text-balance">
-            Inspiring Individuals, Transforming Communities
-          </span>
-        </div>
+        <Link to="https://abhyudayiitb.org/" target="_blank">
+          <div
+            data-aos="fade-left"
+            className="flex items-center space-x-3 px-6 py-2 w-fit rounded-full border-2 border-gray-300 mt-4"
+          >
+            <FaHandsHelping className="w-6 h-6 text-yellow-300" />
+            <span className="text-xs md:text-sm text-white font-roboto text-opacity-70 text-balance">
+              Inspiring Individuals, Transforming Communities
+            </span>
+          </div>
+        </Link>
         <div className="w-full mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-12">
           <div className="order-2 lg:order-1 flex flex-col justify-center items-center lg:items-start">
             <h1

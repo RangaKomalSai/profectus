@@ -131,7 +131,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="mx-auto lg:-mx-0 mb-8 lg:mb-0">
+        <div className="mx-auto lg:-mx-0 mb-8 lg:mb-0 order-1 lg:order-2">
           <img
             src={why}
             alt="Why Profectus"
