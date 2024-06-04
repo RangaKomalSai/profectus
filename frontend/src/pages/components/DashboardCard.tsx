@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, MouseEvent } from "react";
 import Tilt from "react-parallax-tilt";
 
 type Props = {
@@ -28,17 +28,41 @@ const Cards: React.FC<Props> = ({
     setIsPopupOpen(!isPopupOpen);
   };
 
-  // Prevent background scrolling when popup is open
+  const handleClosePopup = useCallback(() => {
+    setIsPopupOpen(false);
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsPopupOpen(false);
+      }
+    },
+    [setIsPopupOpen]
+  );
+
   useEffect(() => {
     if (isPopupOpen) {
       document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", handleKeyDown);
     } else {
       document.body.style.overflow = "auto";
+      document.removeEventListener("keydown", handleKeyDown);
     }
     return () => {
       document.body.style.overflow = "auto";
+      document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isPopupOpen]);
+  }, [isPopupOpen, handleKeyDown]);
+
+  const handleBackgroundClick = useCallback(
+    (event: MouseEvent<HTMLDivElement>) => {
+      if (event.target === event.currentTarget) {
+        setIsPopupOpen(false);
+      }
+    },
+    [setIsPopupOpen]
+  );
 
   return (
     <>
@@ -92,7 +116,10 @@ const Cards: React.FC<Props> = ({
         </div>
       </Tilt>
       {isPopupOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
+        <div
+          className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50"
+          onClick={handleBackgroundClick}
+        >
           <div className="bg-white rounded-lg p-6 w-11/12 max-w-lg mx-auto relative mt-[25vh] overflow-y-auto max-h-[80vh] mb-32 custom-scrollbar">
             <button
               onClick={togglePopup}
