@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import manasvi from "../../images/manasvi.jpg";
 import sunny from "../../images/sunny.jpg";
-import { FaEnvelope, FaLinkedin, FaLinkedinIn } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading.tsx";
 import { Element } from "react-scroll";
@@ -169,12 +169,12 @@ const Campaigns = () => {
                             to="https://www.linkedin.com/in/manasvi-kushwaha-32191a265/"
                             target="_blank"
                           >
-                            <FaLinkedinIn />
+                            <FaLinkedin />
                           </Link>
                         </div>
                       </Caption>
                     </ProfileCard>
-                    <Name>Manasvi</Name>
+                    <Name>Manasvi Kushwaha</Name>
                   </div>
                 </div>
               </Col>
@@ -209,12 +209,12 @@ const Campaigns = () => {
                             to="http://linkedin.com/in/sunny-godara-97b795279"
                             target="_blank"
                           >
-                            <FaLinkedinIn />
+                            <FaLinkedin />
                           </Link>
                         </div>
                       </Caption>
                     </ProfileCard>
-                    <Name>Sunny</Name>
+                    <Name>Sunny Godara</Name>
                   </div>
                 </div>
               </Col>

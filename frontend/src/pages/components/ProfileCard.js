@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import logo from "../../images/ecosystem.png";
+import logo from "../../images/dp.png";
 
 const ProfileCard = () => {
   const [profileData, setProfileData] = useState(null);
@@ -34,12 +34,12 @@ const ProfileCard = () => {
               alt={profileData.name}
               width={150}
               height={150}
-              className="rounded-full object-cover"
+              className="rounded-full object-cover border-2 h-32 w-32 border-black"
             />
-            <p className="font-semibold font-outfit uppercase text-black">
+            <p className="font-extrabold font-outfit uppercase text-black">
               {profileData.name}
             </p>
-            <span className="text-gray-400 text-sm font-poppins">
+            <span className="text-black text-opacity-80 font-medium text-sm font-poppins">
               {profileData.department}
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-12 mt-4">

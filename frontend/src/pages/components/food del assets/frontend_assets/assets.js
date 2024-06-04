@@ -119,17 +119,16 @@ export const menu_list = [
 
 export const food_list = [
   {
-    _id: "1",
+    company_id: "1",
     name: "Greek salad",
     image: food_1,
     price: 12,
-    // description:
-    //   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"1914 translation by H. Rackham"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?',
+    
     description: "hello",
     category: "Salad",
   },
   {
-    _id: "2",
+    company_id: "2",
     name: "Veg salad",
     image: food_2,
     price: 18,
@@ -138,7 +137,7 @@ export const food_list = [
     category: "Salad",
   },
   {
-    _id: "3",
+    company_id: "3",
     name: "Clover Salad",
     image: food_3,
     price: 16,
@@ -147,7 +146,7 @@ export const food_list = [
     category: "Salad",
   },
   {
-    _id: "4",
+    company_id: "4",
     name: "Chicken Salad",
     image: food_4,
     price: 24,
@@ -156,7 +155,7 @@ export const food_list = [
     category: "Salad",
   },
   {
-    _id: "5",
+    company_id: "5",
     name: "Lasagna Rolls",
     image: food_5,
     price: 14,
@@ -165,7 +164,7 @@ export const food_list = [
     category: "Rolls",
   },
   {
-    _id: "6",
+    company_id: "6",
     name: "Peri Peri Rolls",
     image: food_6,
     price: 12,
@@ -174,7 +173,7 @@ export const food_list = [
     category: "Rolls",
   },
   {
-    _id: "7",
+    company_id: "7",
     name: "Chicken Rolls",
     image: food_7,
     price: 20,
@@ -183,7 +182,7 @@ export const food_list = [
     category: "Rolls",
   },
   {
-    _id: "8",
+    company_id: "8",
     name: "Veg Rolls",
     image: food_8,
     price: 15,
@@ -192,7 +191,7 @@ export const food_list = [
     category: "Rolls",
   },
   {
-    _id: "9",
+    company_id: "9",
     name: "Ripple Ice Cream",
     image: food_9,
     price: 14,
@@ -201,7 +200,7 @@ export const food_list = [
     category: "Deserts",
   },
   {
-    _id: "10",
+    company_id: "10",
     name: "Fruit Ice Cream",
     image: food_10,
     price: 22,
@@ -210,7 +209,7 @@ export const food_list = [
     category: "Deserts",
   },
   {
-    _id: "11",
+    company_id: "11",
     name: "Jar Ice Cream",
     image: food_11,
     price: 10,
@@ -219,7 +218,7 @@ export const food_list = [
     category: "Deserts",
   },
   {
-    _id: "12",
+    company_id: "12",
     name: "Vanilla Ice Cream",
     image: food_12,
     price: 12,
@@ -228,7 +227,7 @@ export const food_list = [
     category: "Deserts",
   },
   {
-    _id: "13",
+    company_id: "13",
     name: "Chicken Sandwich",
     image: food_13,
     price: 12,
@@ -237,7 +236,7 @@ export const food_list = [
     category: "Sandwich",
   },
   {
-    _id: "14",
+    company_id: "14",
     name: "Vegan Sandwich",
     image: food_14,
     price: 18,
@@ -246,7 +245,7 @@ export const food_list = [
     category: "Sandwich",
   },
   {
-    _id: "15",
+    company_id: "15",
     name: "Grilled Sandwich",
     image: food_15,
     price: 16,
@@ -255,7 +254,7 @@ export const food_list = [
     category: "Sandwich",
   },
   {
-    _id: "16",
+    company_id: "16",
     name: "Bread Sandwich",
     image: food_16,
     price: 24,
@@ -264,7 +263,7 @@ export const food_list = [
     category: "Sandwich",
   },
   {
-    _id: "17",
+    company_id: "17",
     name: "Cup Cake",
     image: food_17,
     price: 14,
@@ -273,7 +272,7 @@ export const food_list = [
     category: "Cake",
   },
   {
-    _id: "18",
+    company_id: "18",
     name: "Vegan Cake",
     image: food_18,
     price: 12,
@@ -282,7 +281,7 @@ export const food_list = [
     category: "Cake",
   },
   {
-    _id: "19",
+    company_id: "19",
     name: "Butterscotch Cake",
     image: food_19,
     price: 20,
@@ -291,7 +290,7 @@ export const food_list = [
     category: "Cake",
   },
   {
-    _id: "20",
+    company_id: "20",
     name: "Sliced Cake",
     image: food_20,
     price: 15,
@@ -300,7 +299,7 @@ export const food_list = [
     category: "Cake",
   },
   {
-    _id: "21",
+    company_id: "21",
     name: "Garlic Mushroom ",
     image: food_21,
     price: 14,
@@ -309,7 +308,7 @@ export const food_list = [
     category: "Pure Veg",
   },
   {
-    _id: "22",
+    company_id: "22",
     name: "Fried Cauliflower",
     image: food_22,
     price: 22,
@@ -318,7 +317,7 @@ export const food_list = [
     category: "Pure Veg",
   },
   {
-    _id: "23",
+    company_id: "23",
     name: "Mix Veg Pulao",
     image: food_23,
     price: 10,
@@ -327,7 +326,7 @@ export const food_list = [
     category: "Pure Veg",
   },
   {
-    _id: "24",
+    company_id: "24",
     name: "Rice Zucchini",
     image: food_24,
     price: 12,
@@ -336,7 +335,7 @@ export const food_list = [
     category: "Pure Veg",
   },
   {
-    _id: "25",
+    company_id: "25",
     name: "Cheese Pasta",
     image: food_25,
     price: 12,
@@ -345,7 +344,7 @@ export const food_list = [
     category: "Pasta",
   },
   {
-    _id: "26",
+    company_id: "26",
     name: "Tomato Pasta",
     image: food_26,
     price: 18,
@@ -354,7 +353,7 @@ export const food_list = [
     category: "Pasta",
   },
   {
-    _id: "27",
+    company_id: "27",
     name: "Creamy Pasta",
     image: food_27,
     price: 16,
@@ -363,7 +362,7 @@ export const food_list = [
     category: "Pasta",
   },
   {
-    _id: "28",
+    company_id: "28",
     name: "Chicken Pasta",
     image: food_28,
     price: 24,
@@ -372,7 +371,7 @@ export const food_list = [
     category: "Pasta",
   },
   {
-    _id: "29",
+    company_id: "29",
     name: "Buttter Noodles",
     image: food_29,
     price: 14,
@@ -381,7 +380,7 @@ export const food_list = [
     category: "Noodles",
   },
   {
-    _id: "30",
+    company_id: "30",
     name: "Veg Noodles",
     image: food_30,
     price: 12,
@@ -390,7 +389,7 @@ export const food_list = [
     category: "Noodles",
   },
   {
-    _id: "31",
+    company_id: "31",
     name: "Somen Noodles",
     image: food_31,
     price: 20,
@@ -399,7 +398,7 @@ export const food_list = [
     category: "Noodles",
   },
   {
-    _id: "32",
+    company_id: "32",
     name: "Cooked Noodles",
     image: food_32,
     price: 15,
