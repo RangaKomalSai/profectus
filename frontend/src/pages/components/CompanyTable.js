@@ -9,6 +9,7 @@ function CompanyTable() {
   const [accepted, setAccepted] = useState([]);
   const [rejected, setRejected] = useState([]);
   const [confirmButtonDisabled, setConfirmButtonDisabled] = useState(false);
+  const [name, setName] = useState("");
 
   axios.defaults.withCredentials = true;
 
@@ -18,6 +19,7 @@ function CompanyTable() {
         const response = await axios.get(
           `http://localhost:5000/api/company/applications`
         );
+        setName(response.data.name);
         setApplications(response.data.applications || []);
       } catch (error) {
         console.error("Error fetching applications:", error);
@@ -63,8 +65,6 @@ function CompanyTable() {
     setIsModalOpen(false);
 
     try {
-      console.log(accepted);
-      console.log(rejected);
       const response = await axios.post(
         "http://localhost:5000/api/company/confirm-applications",
         {
@@ -91,6 +91,9 @@ function CompanyTable() {
     <>
       <div>
         <div className="container mx-auto flex flex-col items-center rounded-2xl text-center p-10">
+          <div className="text-wrap text-xl text-white font-outfit font-bold pt-4 text-center pr-4 pl-4">
+            {name}
+          </div>
           <div className="w-full overflow-x-auto">
             <table className="table bg-white border-collapse rounded-2xl shadow-md w-full my-8">
               <thead className="table__head bg-gray-200">

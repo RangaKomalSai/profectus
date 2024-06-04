@@ -115,7 +115,7 @@ const MobileDashNav = ({ closeNav, showNav }: Props) => {
               Rules
             </Link>
           </li>
-          <li className="hover: cursor-pointer">
+          {/* <li className="hover: cursor-pointer">
             <Link
               to="#"
               className="nav_link text-[25px] sm:text-[30px] text-white"
@@ -123,7 +123,7 @@ const MobileDashNav = ({ closeNav, showNav }: Props) => {
             >
               Blog
             </Link>
-          </li>
+          </li> */}
           <li className="hover: cursor-pointer">
             <Link
               to="#"

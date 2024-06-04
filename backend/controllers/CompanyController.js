@@ -1,5 +1,6 @@
 import Application from "../models/Application.js";
 import Preference from "../models/Preference.js";
+import Company from "../models/Company.js";
 import User from "../models/User.js";
 import jwt from "jsonwebtoken";
 
@@ -15,6 +16,7 @@ export const getCompanyApplications = async (req, res) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const companyId = decoded.companyId;
+    const companyName = await Company.findOne({ companyId: companyId });
 
     // Find the application document for the company
     const application = await Application.findOne({ companyId });
@@ -74,6 +76,7 @@ export const getCompanyApplications = async (req, res) => {
 
     res.json({
       status: true,
+      name: companyName.name,
       message: "Applications found.",
       applications,
     });

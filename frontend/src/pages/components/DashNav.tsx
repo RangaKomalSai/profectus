@@ -102,11 +102,11 @@ const DashNav = ({ openNav }) => {
                 Rules
               </Link>
             </li>
-            <li className="hover: cursor-pointer">
+            {/* <li className="hover: cursor-pointer">
               <Link to="#" className="nav_link">
                 Blog
               </Link>
-            </li>
+            </li> */}
             <li className="hover: cursor-pointer">
               <Link to="#" className="nav_link">
                 Resources
