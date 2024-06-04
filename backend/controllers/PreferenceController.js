@@ -32,6 +32,14 @@ export const savePreferences = async (req, res) => {
       return res.json({ status: false, message: "Resume is required" });
     }
 
+    // Check if resume link contains "https"
+    if (!resume.startsWith("https://")) {
+      return res.json({
+        status: false,
+        message: "Enter a correct link for resume",
+      });
+    }
+
     let studentPreference = await Preference.findOne({ rollNumber });
 
     if (studentPreference) {
@@ -94,7 +102,9 @@ export const getPreferences = async (req, res) => {
     if (preferences && Array.isArray(preferences.preferences)) {
       // Return the preferences array to the frontend
       // console.log(preferences.preferences);
-      res.json({ preferences: preferences.preferences });
+      res.json({
+        preferences: preferences.preferences,
+      });
     } else {
       // If preferences is null or not an array, return an empty array
       res.json({ preferences: [] });

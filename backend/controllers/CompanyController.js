@@ -3,42 +3,6 @@ import Preference from "../models/Preference.js";
 import User from "../models/User.js";
 import jwt from "jsonwebtoken";
 
-// export const getCompanyApplications = async (req, res) => {
-//   try {
-//     const token = req.cookies.token;
-//     if (!token) {
-//       return res.json({
-//         status: false,
-//         message: "Unauthorized. Please Login again.",
-//       });
-//     }
-
-//     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-//     const companyId = decoded.companyId;
-
-//     // Find the application document for the company
-//     const application = await Application.findOne({ companyId: companyId });
-
-//     if (!application) {
-//       return res.json({
-//         status: true,
-//         message: "Some error occurred. Contact the team.",
-//         rollNumbers: [],
-//       });
-//     }
-
-//     // Return the roll numbers from the application document
-//     res.json({
-//       status: true,
-//       message: "Applications found.",
-//       rollNumbers: application.rollNumbers,
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ status: false, message: "Internal server error" });
-//   }
-// };
-
 export const getCompanyApplications = async (req, res) => {
   try {
     const token = req.cookies.token;
@@ -89,6 +53,9 @@ export const getCompanyApplications = async (req, res) => {
                 preferenceNumber: preference.preferences.find(
                   (pref) => pref.companyId === companyId
                 ).preferenceNumber,
+                status: preference.preferences.find(
+                  (pref) => pref.companyId === companyId
+                ).status,
               }
             : null; // Handle missing preferences
         })
@@ -113,5 +80,49 @@ export const getCompanyApplications = async (req, res) => {
   } catch (error) {
     console.error("Error getting company applications:", error);
     res.status(500).json({ status: false, message: "Internal server error" });
+  }
+};
+
+export const confirmApplications = async (req, res) => {
+  const { accepted, rejected } = req.body;
+  const token = req.cookies.token;
+
+  if (!token) {
+    return res.json({
+      status: false,
+      message: "Unauthorized. Please Login again.",
+    });
+  }
+
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  const companyId = decoded.companyId;
+
+  try {
+    await Promise.all(
+      accepted.map(async (rollNumber) => {
+        await Preference.updateOne(
+          { rollNumber, "preferences.companyId": companyId },
+          { $set: { "preferences.$.status": "Accepted" } }
+        );
+      })
+    );
+
+    await Promise.all(
+      rejected.map(async (rollNumber) => {
+        await Preference.updateOne(
+          { rollNumber, "preferences.companyId": companyId },
+          { $set: { "preferences.$.status": "Rejected" } }
+        );
+      })
+    );
+
+    res
+      .status(200)
+      .json({ status: true, message: "Applications updated successfully" });
+  } catch (error) {
+    console.error("Error updating applications:", error);
+    res
+      .status(500)
+      .json({ status: false, message: "Failed to update applications" });
   }
 };

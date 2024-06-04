@@ -1,10 +1,12 @@
 import express from "express";
-import jwt from "jsonwebtoken";
-import User from "../models/User.js";
-import { getCompanyApplications } from "../controllers/CompanyController.js";
+import {
+  getCompanyApplications,
+  confirmApplications,
+} from "../controllers/CompanyController.js";
 
 const router = express.Router();
 
 router.get("/applications", getCompanyApplications);
+router.post("/confirm-applications", confirmApplications);
 
 export default router;

@@ -23,6 +23,11 @@ const PreferenceSchema = new mongoose.Schema({
           type: Number,
           required: true,
         },
+        status: {
+          type: String,
+          enum: ["Pending", "Accepted", "Rejected"],
+          default: "Pending",
+        },
       },
     ],
     validate: [arrayLimit, "{PATH} exceeds the limit of 5"],

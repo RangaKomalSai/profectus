@@ -123,7 +123,7 @@ export const food_list = [
     name: "Greek salad",
     image: food_1,
     price: 12,
-    
+
     description: "hello",
     category: "Salad",
   },

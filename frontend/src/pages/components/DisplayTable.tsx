@@ -42,10 +42,11 @@ const Table: React.FC = () => {
                 Preference No
               </th>
               <th className="Company py-4">Company Name</th>
+              <th className="Company py-4">Status</th>
             </tr>
           </thead>
           <tbody className="table__body font-roboto">
-            {preferences.map(({ company, preferenceNumber }) => (
+            {preferences.map(({ company, preferenceNumber, status }) => (
               <tr className="table__row hover:bg-gray-100" key={company}>
                 <td
                   className="table__body__text table__body__text--name px-6 py-4 text-center"
@@ -58,6 +59,12 @@ const Table: React.FC = () => {
                   data-title="Company name"
                 >
                   {company}
+                </td>
+                <td
+                  className="table__body__text table__body__text--country px-16 py-4 text-center"
+                  data-title="Status"
+                >
+                  {status}
                 </td>
               </tr>
             ))}

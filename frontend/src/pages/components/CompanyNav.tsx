@@ -26,9 +26,6 @@ const DashNav = ({ openNav }) => {
         console.log(err);
       });
   };
-  const handleRulesClick = () => {
-    setIsModalOpen(true);
-  };
   const handleHomeClick = () => {
     window.scrollTo(0, 0);
   };
@@ -83,11 +80,11 @@ const DashNav = ({ openNav }) => {
       >
         <div className="flex items-center h-[10vh] lg:h-[12vh] justify-between w-4/5 mx-auto">
           <div className="font-bold text-white text-2xl">
-            <Link to="/student-dashboard" onClick={handleHomeClick}>
+            <Link to="/company-dashboard" onClick={handleHomeClick}>
               <img src={ablogo} alt="Logo" className="w-24 md:w-40" />
             </Link>
           </div>
-          <ul className="lg:flex hidden items-center space-x-10 lg:space-x-12 xl:space-x-14 font-outfit">
+          {/* <ul className="lg:flex hidden items-center space-x-10 lg:space-x-12 xl:space-x-14 font-outfit">
             <li className="hover: cursor-pointer">
               <Link
                 to="/student-dashboard"
@@ -117,7 +114,7 @@ const DashNav = ({ openNav }) => {
                 Profile
               </Link>
             </li>
-          </ul>
+          </ul> */}
           <div className="flex items-center space-x-6">
             <button
               onClick={handleClick}

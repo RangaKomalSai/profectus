@@ -21,6 +21,9 @@ function CompanyDashboard() {
   return (
     <div className="bg-gradient-to-b from-[#0C0C33] to-[#050145] min-h-screen">
       <ResponsiveCompanyNav />
+      <div className="text-wrap text-xl text-white font-outfit pt-32 text-center pr-4 pl-4">
+        Hey, There! These are the applicants for your company.
+      </div>
       <CompanyTable />
     </div>
   );
