@@ -93,7 +93,7 @@ export const getPreferences = async (req, res) => {
 
     if (preferences && Array.isArray(preferences.preferences)) {
       // Return the preferences array to the frontend
-      console.log(preferences.preferences);
+      // console.log(preferences.preferences);
       res.json({ preferences: preferences.preferences });
     } else {
       // If preferences is null or not an array, return an empty array
