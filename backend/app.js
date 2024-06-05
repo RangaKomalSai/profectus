@@ -23,7 +23,7 @@ app.use(
 );
 // app.use(cors());
 app.use(cookieParser());
-app.use("/auth", UserRouter);
+app.use("/api/auth", UserRouter);
 app.use("/api/preferences", PreferenceRoute);
 app.use("/api/profile", ProfileRoute);
 app.use("/api/company", CompanyRoute);

@@ -10,7 +10,7 @@ function StudentDashboard() {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get(`${API_URL}/auth/verify-student`, {
+      .get(`${API_URL}/api/auth/verify-student`, {
         withCredentials: true,
       })
       .then((res) => {

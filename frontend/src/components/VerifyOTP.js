@@ -10,7 +10,7 @@ function VerifyOTP() {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get(`${API_URL}/auth/verify-student`, {
+      .get(`${API_URL}/api/auth/verify-student`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -55,7 +55,7 @@ function VerifyOTP() {
       const otpCode = otp.join("");
       const email = location.state?.email || "";
       console.log(email, otpCode);
-      const response = await axios.post(`${API_URL}/auth/verify-otp`, {
+      const response = await axios.post(`${API_URL}/api/auth/verify-otp`, {
         email,
         otp: otpCode,
       });

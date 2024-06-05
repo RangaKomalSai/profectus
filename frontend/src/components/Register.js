@@ -134,7 +134,7 @@ function Register() {
     }
     setIsLoading(true);
 
-    const promise = axios.post(`${API_URL}/auth/register`, formData, {
+    const promise = axios.post(`${API_URL}/api/auth/register`, formData, {
       withCredentials: true,
     });
 

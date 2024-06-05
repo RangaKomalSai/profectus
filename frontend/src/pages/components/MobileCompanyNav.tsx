@@ -33,7 +33,7 @@ const MobileDashNav = ({ closeNav, showNav }: Props) => {
   const handleLogout = () => {
     axios.defaults.withCredentials = true;
     axios
-      .get(`${API_URL}/auth/logout`)
+      .get(`${API_URL}/api/auth/logout`)
       .then((res) => {
         if (res.data.status) {
           toast.success("Logged out successfully");

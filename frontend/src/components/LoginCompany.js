@@ -10,7 +10,7 @@ function LoginCompany() {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get(`${API_URL}/auth/verify-company`).then((res) => {
+    axios.get(`${API_URL}/api/auth/verify-company`).then((res) => {
       if (res.data.status) {
         navigate("/company-dashboard");
       } else {
@@ -40,7 +40,7 @@ function LoginCompany() {
     axios.defaults.withCredentials = true;
     try {
       const response = await axios.post(
-        `${API_URL}/auth/login/company`,
+        `${API_URL}/api/auth/login/company`,
         formData
       );
       // .then((response) => {

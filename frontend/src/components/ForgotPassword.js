@@ -48,7 +48,7 @@ function ForgotPassword() {
 
     try {
       const response = await axios.post(
-        `${API_URL}/auth/forgot-password`,
+        `${API_URL}/api/auth/forgot-password`,
         formData
       );
 

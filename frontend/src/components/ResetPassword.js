@@ -50,7 +50,7 @@ function ForgotPassword() {
     try {
       axios.defaults.withCredentials = true;
       await axios
-        .post(`${API_URL}/auth/reset-password/` + token, formData)
+        .post(`${API_URL}/api/auth/reset-password/` + token, formData)
         .then((response) => {
           if (response.data.status) {
             toast.success("Password changed successfully");

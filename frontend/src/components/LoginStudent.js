@@ -10,7 +10,7 @@ function LoginStudent() {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get(`${API_URL}/auth/verify-student`, {
+      .get(`${API_URL}/api/auth/verify-student`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -54,7 +54,7 @@ function LoginStudent() {
     axios.defaults.withCredentials = true;
     try {
       const response = await axios.post(
-        `${API_URL}/auth/login/student`,
+        `${API_URL}/api/auth/login/student`,
         formData
       );
       // .then((response) => {

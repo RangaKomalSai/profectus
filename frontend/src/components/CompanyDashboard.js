@@ -11,7 +11,7 @@ function CompanyDashboard() {
 
   useEffect(() => {
     // Verify company authentication
-    axios.get(`${API_URL}/auth/verify-company`).then((res) => {
+    axios.get(`${API_URL}/api/auth/verify-company`).then((res) => {
       if (!res.data.status) {
         navigate("/login/company");
       }
