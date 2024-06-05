@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import NormalNav from "../pages/components/NormalNav.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function LoginStudent() {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:5000/auth/verify-student", {
+      .get(`${API_URL}/api/auth/verify-student`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -53,7 +54,7 @@ function LoginStudent() {
     axios.defaults.withCredentials = true;
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth/login/student",
+        `${API_URL}/api/auth/login/student`,
         formData
       );
       // .then((response) => {
@@ -80,10 +81,10 @@ function LoginStudent() {
           className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg sm:m-6 lg:mx-4 mx-8"
           data-aos="zoom-in-up"
         >
-          <div className="flex justify-center space-x-2 p-4 mb-6">
+          <div className="flex justify-center space-x-2 p-4 mb-6 font-outfit">
             <button
               onClick={() => handleTabClick("student")}
-              className={`text-md md:text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
+              className={`text-md md:text-2xl font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
                 selectedTab === "student"
                   ? "bg-black text-white border border-white"
                   : "bg-white text-black"
@@ -93,7 +94,7 @@ function LoginStudent() {
             </button>
             <button
               onClick={() => handleTabClick("company")}
-              className={`text-md md:text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
+              className={`text-md md:text-2xl font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
                 selectedTab === "company"
                   ? "bg-black text-white border border-white"
                   : "bg-white bg-opacity-60 text-gray-500 hover:bg-opacity-100 hover:text-black"
@@ -102,7 +103,7 @@ function LoginStudent() {
               COMPANY LOGIN
             </button>
           </div>
-          <form className="space-y-8" onSubmit={handleSubmit}>
+          <form className="space-y-8 font-roboto" onSubmit={handleSubmit}>
             <input
               type="email"
               name="ldap"
@@ -136,7 +137,7 @@ function LoginStudent() {
               Login
             </button>
           </form>
-          <div className="flex justify-end mt-2">
+          <div className="flex justify-end mt-2 font-roboto">
             <Link
               to="/forgot-password"
               className="text-blue-600 hover:underline"
@@ -144,7 +145,7 @@ function LoginStudent() {
               Forgot Password?
             </Link>
           </div>
-          <p className="text-center mt-6">
+          <p className="text-center mt-6 font-roboto">
             Don't have an account?{" "}
             <Link to="/register" className="text-blue-600 hover:underline">
               Register Now

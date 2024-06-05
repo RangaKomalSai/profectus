@@ -1,5 +1,6 @@
 // controllers/preferencesController.js
 import Preference from "../models/Preference.js";
+import Company from "../models/Company.js";
 import jwt from "jsonwebtoken";
 
 export const savePreferences = async (req, res) => {
@@ -31,6 +32,14 @@ export const savePreferences = async (req, res) => {
       return res.json({ status: false, message: "Resume is required" });
     }
 
+    // Check if resume link contains "https"
+    if (!resume.startsWith("https://")) {
+      return res.json({
+        status: false,
+        message: "Enter a correct link for resume",
+      });
+    }
+
     let studentPreference = await Preference.findOne({ rollNumber });
 
     if (studentPreference) {
@@ -40,14 +49,43 @@ export const savePreferences = async (req, res) => {
       });
     }
 
-    studentPreference = new Preference({ rollNumber, preferences, resume });
-    await studentPreference.save();
+    const updatedPreferences = [];
+    for (const pref of preferences) {
+      const company = await Company.findOne({ name: pref.company });
+      console.log(company);
+      if (!company) {
+        return res.status(400).json({
+          status: false,
+          message: `Company ${pref.company} not found`,
+        });
+      }
+      updatedPreferences.push({
+        companyId: company.companyId,
+        company: company.name,
+        preferenceNumber: pref.preferenceNumber,
+      });
+    }
 
-    res
-      .status(200)
-      .json({ status: true, message: "Applied successfully. Check Profile" });
+    studentPreference = new Preference({
+      rollNumber: rollNumber,
+      preferences: updatedPreferences,
+      resume,
+    });
+
+    try {
+      await studentPreference.save();
+
+      res
+        .status(200)
+        .json({ status: true, message: "Applied successfully. Check Profile" });
+    } catch (saveError) {
+      console.error("Error saving student preference:", saveError);
+      return res
+        .status(500)
+        .json({ status: false, message: "Failed to save preferences" });
+    }
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ status: false, message: "Internal server error" });
   }
 };
 
@@ -59,11 +97,14 @@ export const getPreferences = async (req, res) => {
     const rollNumber = decoded.username;
 
     // Query the Preferences model to find preferences associated with the roll number
-    const preferences = await Preference.findOne({ rollNumber });
+    const preferences = await Preference.findOne({ rollNumber: rollNumber });
 
     if (preferences && Array.isArray(preferences.preferences)) {
       // Return the preferences array to the frontend
-      res.json({ preferences: preferences.preferences });
+      // console.log(preferences.preferences);
+      res.json({
+        preferences: preferences.preferences,
+      });
     } else {
       // If preferences is null or not an array, return an empty array
       res.json({ preferences: [] });

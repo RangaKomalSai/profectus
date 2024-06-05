@@ -10,7 +10,9 @@ function NormalNav() {
   return (
     <div
       className={`fixed w-full transition-all duration-200 z-[1000] ${
-        navSticky ? "bg-gradient-to-b from-[#1d1d6d] to-[#071823]" : "bg-nav"
+        navSticky
+          ? "bg-gradient-to-b from-[#1d1d6d] to-[#071823]"
+          : "bg-[#2b387a]"
       }`}
     >
       <div className="flex items-center h-[10vh] lg:h-[12vh] justify-center w-4/5 mx-auto">

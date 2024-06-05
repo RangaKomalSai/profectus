@@ -2,15 +2,16 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ProfileCard from "./components/ProfileCard.js";
-import DashNav from "./components/DashNav.tsx";
+import ResponsiveDashNav from "./components/ResponsiveDashNav.tsx";
 import DisplayTable from "./components/DisplayTable.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function Profile() {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:5000/auth/verify-student", {
+      .get(`${API_URL}/api/auth/verify-student`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -23,7 +24,7 @@ function Profile() {
   }, []);
   return (
     <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen">
-      <DashNav />
+      <ResponsiveDashNav />
       <ProfileCard />
       <div className="mt-8">
         <DisplayTable />

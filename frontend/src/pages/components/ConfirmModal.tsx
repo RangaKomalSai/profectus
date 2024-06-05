@@ -6,7 +6,7 @@ interface ModalProps {
   onConfirm: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ show, onClose, onConfirm }) => {
+const CompanyModal: React.FC<ModalProps> = ({ show, onClose, onConfirm }) => {
   if (!show) {
     return null;
   }
@@ -14,12 +14,12 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, onConfirm }) => {
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-11/12 max-w-lg mx-auto relative">
-        <h2 className="text-xl font-outfit font-bold mb-4">
-          Are you sure you want to apply?
+        <h2 className="text-xl font-outfit font-bold mb-4 pb-2">
+          Are you sure you want to confirm the selections?
         </h2>
-        <p className="font-medium text-gray-500 mb-4 font-roboto tracking-wider text-base">
+        {/* <p className="font-medium text-gray-500 mb-4 font-roboto tracking-wider text-base">
           You cannot change them later.
-        </p>
+        </p> */}
         <div className="flex justify-end space-x-4">
           <button
             onClick={onClose}
@@ -31,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, onConfirm }) => {
             onClick={onConfirm}
             className="bg-orange-600 px-4 py-2 rounded-lg text-white font-roboto"
           >
-            Apply
+            Confirm
           </button>
         </div>
       </div>
@@ -39,4 +39,4 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, onConfirm }) => {
   );
 };
 
-export default Modal;
+export default CompanyModal;

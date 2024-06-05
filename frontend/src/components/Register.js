@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NormalNav from "../pages/components/NormalNav.tsx";
 import toast, { Toaster } from "react-hot-toast";
+import { API_URL } from "../utils/apiConfig.js";
 
 const departments = [
   "Aerospace Engineering",
@@ -133,11 +134,9 @@ function Register() {
     }
     setIsLoading(true);
 
-    const promise = axios.post(
-      "http://localhost:5000/auth/register",
-      formData,
-      { withCredentials: true }
-    );
+    const promise = axios.post(`${API_URL}/api/auth/register`, formData, {
+      withCredentials: true,
+    });
 
     toast.promise(promise, {
       loading: "Registering...",
@@ -178,10 +177,10 @@ function Register() {
             className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg lg:mx-4 mx-8"
             data-aos="zoom-in-up"
           >
-            <h2 className="text-center text-3xl font-crimson font-bold mb-6">
+            <h2 className="text-center text-3xl font-outfit font-bold mb-6">
               REGISTER
             </h2>
-            <form className="space-y-8" onSubmit={handleSubmit}>
+            <form className="space-y-8 font-roboto" onSubmit={handleSubmit}>
               <input
                 type="text"
                 name="name"
@@ -322,7 +321,7 @@ function Register() {
               <button
                 type="submit"
                 disabled={!isAgreed || isLoading}
-                className={`w-full p-4 rounded-md font-bold ${
+                className={`w-full p-4 font-roboto tracking-wider rounded-md font-bold ${
                   isAgreed
                     ? "bg-black text-white"
                     : "bg-gray-500 text-gray-300 cursor-not-allowed"
@@ -339,7 +338,7 @@ function Register() {
               </button>
             </form>
 
-            <p className="text-center mt-4">
+            <p className="text-center font-roboto mt-4">
               Already have an account?{" "}
               <Link
                 to="/login/student"

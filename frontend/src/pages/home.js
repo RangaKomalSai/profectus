@@ -1,6 +1,7 @@
 import React from "react";
 import ResponsiveNav from "./components/ResponsiveNav.tsx";
 import Hero from "./components/Hero.js";
+import About1 from "./components/About1.js";
 import About from "./components/About.js";
 import Testimonials from "./components/Testimonials.tsx";
 import ContactUs from "./components/ContactUs.js";
@@ -12,6 +13,7 @@ const Home = () => {
     <div>
       <ResponsiveNav />
       <Hero />
+      <About1 />
       <About />
       <Testimonials />
       <ContactUs />

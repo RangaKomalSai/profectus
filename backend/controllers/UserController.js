@@ -116,7 +116,7 @@ export const verifyOTP = async (req, res) => {
       }
     );
 
-    res.cookie("token", token, { httpOnly: true, maxAge: 360000 });
+    res.cookie("token", token, { httpOnly: true, maxAge: 3600000 });
 
     return res.status(200).send({
       status: true,
@@ -131,12 +131,12 @@ export const verifyOTP = async (req, res) => {
 
 export const loginStudent = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { ldap, password } = req.body;
 
     // Check if the user exists
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ ldap: ldap });
     if (!user) {
-      return res.status(400).json({ message: "Invalid email or password" });
+      return res.status(400).json({ message: "Invalid email" });
     }
 
     // Compare the password
@@ -177,14 +177,18 @@ export const loginCompany = async (req, res) => {
 
     // Create a JWT token
     const token = jwt.sign(
-      { companyId: company._id, email: company.email, role: company.role },
+      {
+        companyId: company.companyId,
+        email: company.email,
+        role: company.role,
+      },
       process.env.JWT_SECRET,
       {
         expiresIn: "1h",
       }
     );
 
-    res.cookie("token", token, { httpOnly: true, maxAge: 360000 });
+    res.cookie("token", token, { httpOnly: true, maxAge: 3600000 });
     res.status(200).json({ token, message: "Login successful" });
   } catch (error) {
     res.status(500).json({ status: false, message: "Internal server error" });

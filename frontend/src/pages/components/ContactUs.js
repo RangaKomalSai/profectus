@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import manasvi from "../../images/manasvi.jpg";
 import sunny from "../../images/sunny.jpg";
-import { FaEnvelope, FaLinkedin, FaLinkedinIn } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading.tsx";
 import { Element } from "react-scroll";
 
 const CampaignsContainer = styled.div`
   background: radial-gradient(
-      circle 500px at right top,
+      circle 500px at left top,
       rgba(35, 121, 171, 0.5),
       transparent
     ),
@@ -24,8 +24,13 @@ const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 80rem;
   text-align: center;
-  margin-top: 120px;
+  margin-top: 60px; /* Default margin-top for small screens */
   margin-bottom: 80px;
+
+  @media (min-width: 768px) {
+    /* For md and larger screens */
+    margin-top: 120px;
+  }
 `;
 
 const Cols = styled.div`
@@ -121,7 +126,7 @@ const Caption = styled.div`
 
 const Name = styled.h3`
   font-size: 21px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-top: 0.75em;
 `;
 
@@ -131,9 +136,9 @@ const Campaigns = () => {
       <CampaignsContainer>
         <Wrapper>
           <section>
-            <SectionHeading heading="CONTACT US" />
+            <SectionHeading heading="Contact us" />
             <Cols>
-              <Col>
+              <Col data-aos="zoom-in">
                 <div className="container">
                   <div
                     className="front"
@@ -149,7 +154,9 @@ const Campaigns = () => {
                         <img src={manasvi} alt="Manasvi" />
                       </ImgContainer>
                       <Caption>
-                        <p>Events Manager</p>
+                        <p className="font-roboto">
+                          Events & Fellowships Manager
+                        </p>
                         <h4 className=" font-lato">7021920836</h4>
                         <div className="social-links flex pt-2 pb-2 justify-center">
                           <Link
@@ -162,16 +169,16 @@ const Campaigns = () => {
                             to="https://www.linkedin.com/in/manasvi-kushwaha-32191a265/"
                             target="_blank"
                           >
-                            <FaLinkedinIn />
+                            <FaLinkedin />
                           </Link>
                         </div>
                       </Caption>
                     </ProfileCard>
-                    <Name>Manasvi</Name>
+                    <Name>Manasvi Kushwaha</Name>
                   </div>
                 </div>
               </Col>
-              <Col>
+              <Col data-aos="zoom-in">
                 <div className="container">
                   <div
                     className="front"
@@ -187,7 +194,9 @@ const Campaigns = () => {
                         <img src={sunny} alt="Manasvi" />
                       </ImgContainer>
                       <Caption>
-                        <p>Events Manager</p>
+                        <p className="font-roboto">
+                          Events & Fellowships Manager
+                        </p>
                         <h4 className=" font-lato">8852895497</h4>
                         <div className="social-links flex pt-2 pb-2 justify-center">
                           <Link
@@ -200,12 +209,12 @@ const Campaigns = () => {
                             to="http://linkedin.com/in/sunny-godara-97b795279"
                             target="_blank"
                           >
-                            <FaLinkedinIn />
+                            <FaLinkedin />
                           </Link>
                         </div>
                       </Caption>
                     </ProfileCard>
-                    <Name>Sunny</Name>
+                    <Name>Sunny Godara</Name>
                   </div>
                 </div>
               </Col>

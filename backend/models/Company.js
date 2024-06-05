@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const companySchema = new mongoose.Schema(
   {
+    companyId: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -19,7 +23,7 @@ const companySchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: ["student", "company"], // Define acceptable roles
-      default: "student", // Set default role as student
+      default: "company", // Set default role as student
     },
   },
   { timestamps: true }

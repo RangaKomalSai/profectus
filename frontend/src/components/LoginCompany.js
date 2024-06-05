@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import NormalNav from "../pages/components/NormalNav.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function LoginCompany() {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get("http://localhost:5000/auth/verify-company").then((res) => {
+    axios.get(`${API_URL}/api/auth/verify-company`).then((res) => {
       if (res.data.status) {
         navigate("/company-dashboard");
       } else {
@@ -39,7 +40,7 @@ function LoginCompany() {
     axios.defaults.withCredentials = true;
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth/login/company",
+        `${API_URL}/api/auth/login/company`,
         formData
       );
       // .then((response) => {
@@ -66,10 +67,10 @@ function LoginCompany() {
           className="bg-white bg-opacity-60 text-black p-8 md:p-8 rounded-lg shadow-lg w-full lg:max-w-2xl md:max-w-lg sm:m-6 lg:mx-4 mx-8"
           data-aos="zoom-in-up"
         >
-          <div className="flex justify-center space-x-2 p-4 mb-6">
+          <div className="flex justify-center space-x-2 p-4 mb-6 font-outfit">
             <button
               onClick={() => handleTabClick("student")}
-              className={`text-md md:text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
+              className={`text-md md:text-2xl font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
                 selectedTab === "student"
                   ? "bg-black text-white border border-white"
                   : "bg-white bg-opacity-60 text-gray-500 hover:bg-opacity-100 hover:text-black"
@@ -79,7 +80,7 @@ function LoginCompany() {
             </button>
             <button
               onClick={() => handleTabClick("company")}
-              className={`text-md md:text-2xl font-crimson font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
+              className={`text-md md:text-2xl font-bold px-8 py-4 rounded-md transition-colors duration-300 ${
                 selectedTab === "company"
                   ? "bg-black text-white border border-white"
                   : "bg-white bg-opacity-60 text-gray-500 hover:bg-opacity-100 hover:text-black"
@@ -88,7 +89,7 @@ function LoginCompany() {
               COMPANY LOGIN
             </button>
           </div>
-          <form className="space-y-8" onSubmit={handleSubmit}>
+          <form className="space-y-8 font-roboto" onSubmit={handleSubmit}>
             <input
               type="email"
               name="email"

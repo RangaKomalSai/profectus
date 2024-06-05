@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, MouseEvent } from "react";
 import Tilt from "react-parallax-tilt";
 
 type Props = {
@@ -28,17 +28,41 @@ const Cards: React.FC<Props> = ({
     setIsPopupOpen(!isPopupOpen);
   };
 
-  // Prevent background scrolling when popup is open
+  const handleClosePopup = useCallback(() => {
+    setIsPopupOpen(false);
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsPopupOpen(false);
+      }
+    },
+    [setIsPopupOpen]
+  );
+
   useEffect(() => {
     if (isPopupOpen) {
       document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", handleKeyDown);
     } else {
       document.body.style.overflow = "auto";
+      document.removeEventListener("keydown", handleKeyDown);
     }
     return () => {
       document.body.style.overflow = "auto";
+      document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isPopupOpen]);
+  }, [isPopupOpen, handleKeyDown]);
+
+  const handleBackgroundClick = useCallback(
+    (event: MouseEvent<HTMLDivElement>) => {
+      if (event.target === event.currentTarget) {
+        setIsPopupOpen(false);
+      }
+    },
+    [setIsPopupOpen]
+  );
 
   return (
     <>
@@ -56,7 +80,7 @@ const Cards: React.FC<Props> = ({
               className="mx-auto mt-8 mb-8 border-2 border-gray-900 rounded-lg"
             />
           </div>
-          <h1 className="text-center font-semibold capitalize text-xl">
+          <h1 className="text-center font-outfit font-semibold capitalize text-xl">
             {name}
           </h1>
           <p className="text-center text-black text-opacity-70 mt-5 mb-5">
@@ -67,19 +91,19 @@ const Cards: React.FC<Props> = ({
           <div className="flex justify-center items-center h-full space-x-4">
             <button
               onClick={togglePopup}
-              className="bg-orange-600 relative h-10 w-32 md:h-12 md:w-40 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:w-0 before:rounded-sm before:bg-indigo-600 before:duration-300 before:ease-out hover:text-white hover:shadow-indigo-600 hover:before:h-40 before:hover:w-40 hover:before:opacity-80"
+              className="bg-[#f58b11] relative h-10 w-32 md:h-12 md:w-40 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:w-0 before:rounded-sm before:bg-indigo-600 before:duration-300 before:ease-out hover:text-white hover:shadow-indigo-600 hover:before:h-40 before:hover:w-40 hover:before:opacity-80"
             >
-              <span className="relative z-100">Read More</span>
+              <span className="relative z-100 font-roboto">Read More</span>
             </button>
             <button
               onClick={() => handleAddToPreference(name)}
               className={`relative h-10 w-32 md:h-12 md:w-40 rounded-lg text-white overflow-hidden font-medium shadow-2xl transition-all duration-200 ${
                 isAdded
                   ? "bg-red-600 hover:text-white hover:shadow-red-600"
-                  : "bg-blue-600 hover:text-white hover:shadow-blue-600"
+                  : "bg-[#4255b3] hover:text-white hover:shadow-[#1f4561]"
               }`}
             >
-              <span className="relative z-100 text-sm md:text-base text-wrap">
+              <span className="relative z-100 text-sm md:text-base text-wrap font-roboto">
                 {isAdded ? "Remove" : "Add to Preference"}
               </span>
             </button>
@@ -92,7 +116,10 @@ const Cards: React.FC<Props> = ({
         </div>
       </Tilt>
       {isPopupOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
+        <div
+          className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50"
+          onClick={handleBackgroundClick}
+        >
           <div className="bg-white rounded-lg p-6 w-11/12 max-w-lg mx-auto relative mt-[25vh] overflow-y-auto max-h-[80vh] mb-32 custom-scrollbar">
             <button
               onClick={togglePopup}

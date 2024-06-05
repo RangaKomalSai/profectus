@@ -1,5 +1,6 @@
 import React from "react";
-import { FaInstagram, FaTwitter, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import logo from "../../images/white_abhyuday_2.png";
 import { Link } from "react-router-dom";
 
@@ -15,7 +16,7 @@ function Footer() {
         overflow: "hidden",
       }}
     >
-      <div className="p-5 md:max-w-sm lg:max-w-md">
+      <div className="p-5 md:max-w-sm lg:max-w-md" data-aos="fade-up">
         <ul>
           <img
             src={logo}
@@ -24,7 +25,7 @@ function Footer() {
             height={176}
             className="pb-4"
           />
-          <li className="text-gray-500 text-md pb-2 font-semibold text-pretty">
+          <li className="text-gray-500 text-md pb-2 font-roboto font-semibold text-pretty">
             Abhyuday, IIT Bombay is Asia's largest student run&nbsp;
             organization&nbsp; working&nbsp; towards&nbsp; creating a
             sense&nbsp; of Social&nbsp; Responsibility and Leadership among the
@@ -33,7 +34,7 @@ function Footer() {
           {/* <li className="text-gray-500 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
             Abhyuday, IIT Bombay is Asia's largest student <br /> run &nbsp; organization &nbsp; working &nbsp; towards &nbsp; creating a <br /> sense &nbsp; of Social &nbsp; Responsibility and Leadership <br /> among the youth of India.
           </li> */}
-          <li className="font-bold pb-4">
+          <li className="font-bold font-poppins pb-4">
             Inspiring Individuals, Transforming Communities
           </li>
           <div className="flex gap-6 pb-5">
@@ -44,13 +45,13 @@ function Footer() {
               <FaInstagram className="text-2xl cursor-pointer hover:text-pink-500" />
             </Link>
             <Link to="https://x.com/Abhyuday_IITB" target="_blank">
-              <FaTwitter className="text-2xl cursor-pointer hover:text-blue-600" />
+              <FaXTwitter className="text-2xl cursor-pointer hover:text-gray-600" />
             </Link>
             <Link
               to="https://www.linkedin.com/company/abhyuday-iit-bombay/"
               target="_blank"
             >
-              <FaLinkedin className="text-2xl cursor-pointer hover:text-blue-600" />
+              <FaLinkedin className="text-2xl cursor-pointer hover:text-blue-800" />
             </Link>
             <Link to="https://youtube.com/@abhyudayiitbombay" target="_blank">
               <FaYoutube className="text-2xl cursor-pointer hover:text-red-600" />
@@ -59,9 +60,11 @@ function Footer() {
         </ul>
       </div>
       <div className="p-5">{/* Your content here */}</div>
-      <div className="p-5">
-        <ul>
-          <p className="text-gray-20 font-bold text-2xl pb-4">QUICK LINKS</p>
+      <div className="p-5" data-aos="fade-up">
+        <ul className="font-roboto">
+          <p className="text-gray-20 font-outfit font-bold text-2xl pb-4">
+            QUICK LINKS
+          </p>
           <li className="text-gray-50 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
             <Link to="https://www.abhyudayiitb.org" target="_blank">
               Abhyuday
@@ -90,10 +93,12 @@ function Footer() {
           </li>
         </ul>
       </div>
-      <div className="p-5">
+      <div className="p-5" data-aos="fade-up">
         <ul>
-          <p className="text-gray-20 font-bold text-2xl pb-4">REACH OUT</p>
-          <li className="text-gray-50 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
+          <p className="text-gray-20 font-outfit font-bold text-2xl pb-4">
+            REACH OUT
+          </p>
+          <li className="text-gray-50 text-md pb-2 font-roboto font-semibold hover:text-blue-600 cursor-pointer">
             <Link
               to="https://maps.app.goo.gl/seG6qxwWHYLZWjrG7"
               target="_blank"

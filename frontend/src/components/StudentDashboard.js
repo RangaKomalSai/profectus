@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import DashNav from "../pages/components/DashNav.tsx";
+import ResponsiveDashNav from "../pages/components/ResponsiveDashNav.tsx";
 import Rules from "../pages/components/Rules.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function StudentDashboard() {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:5000/auth/verify-student", {
+      .get(`${API_URL}/api/auth/verify-student`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -22,8 +23,8 @@ function StudentDashboard() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-[#0C0C33] to-[#247FB2] min-h-screen">
-      <DashNav />
+    <div className="bg-gradient-to-b from-[#0C0C33] to-[#050145] min-h-screen">
+      <ResponsiveDashNav />
       <Rules />
     </div>
   );
