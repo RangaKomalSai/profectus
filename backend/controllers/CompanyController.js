@@ -16,8 +16,10 @@ export const getCompanyApplications = async (req, res) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const companyId = decoded.companyId;
-    const companyName = await Company.findOne({ companyId: companyId });
-
+    const number =  parseInt(companyId);
+    const companyName = await Company.findOne({ companyId: number });
+    console.log(number, companyName);
+ 
     // Find the application document for the company
     const application = await Application.findOne({ companyId });
 

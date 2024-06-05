@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import ConfirmModal from "./ConfirmModal.tsx";
-import { API_URL } from "../utils/apiConfig.js";
+import { API_URL } from "../../utils/apiConfig.js";
 
 function CompanyTable() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -77,7 +77,7 @@ function CompanyTable() {
           `${API_URL}/api/company/applications`
         );
         setApplications(updatedApplications.data.applications || []);
-        setConfirmButtonDisabled(true);
+        // setConfirmButtonDisabled(true);
       } else {
         console.error("Error confirming changes:", response.data.message);
       }

@@ -4,9 +4,14 @@ import Tilt from "react-parallax-tilt";
 type Props = {
   image: string;
   name: string;
-  price: number;
+  job_title: string;
   description: string;
-  category: string;
+  domain: string;
+  mode: string;
+  number_of_fellows: number | null;
+  stipend: string;
+  website_link: string;
+  city: string;
   isAdded: boolean;
   preferenceNumber: number | null;
   handleAddToPreference: (name: string) => void;
@@ -15,9 +20,14 @@ type Props = {
 const Cards: React.FC<Props> = ({
   image,
   name,
-  price,
+  job_title,
   description,
-  category,
+  domain,
+  mode,
+  number_of_fellows,
+  stipend,
+  website_link,
+  city,
   isAdded,
   preferenceNumber,
   handleAddToPreference,
@@ -69,25 +79,42 @@ const Cards: React.FC<Props> = ({
       <Tilt className="parallax-effect" perspective={5000}>
         <div
           className="bg-gray-200 rounded-lg p-6 w-full"
-          // data-aos="fade-right"
           data-aos-anchor-placement="top-center"
           data-aos-delay="200"
         >
-          <div>
-            <img
-              src={image}
-              alt="Food Image"
-              className="mx-auto mt-8 mb-8 border-2 border-gray-900 rounded-lg"
-            />
-          </div>
-          <h1 className="text-center font-outfit font-semibold capitalize text-xl">
-            {name}
-          </h1>
-          <p className="text-center text-black text-opacity-70 mt-5 mb-5">
-            {description}
-          </p>
-          <p className="text-center text-black text-base">{price}</p>
-          <p className="text-center text-black text-base">{category}</p>
+     <div>
+  <img
+    src={image}
+    alt="Image"
+    className="mx-auto mt-8 mb-8 border-2 border-gray-900 rounded-lg w-32 h-32" // Adjust width and height as needed
+  />
+</div>
+
+<h1 className="text-center font-outfit font-bold capitalize text-xl whitespace-nowrap overflow-hidden">
+  {/* <span className="whitespace-nowrap overflow-hidden "> */}
+    {name}
+</h1>
+
+          <p className="text-center text-black text-base whitespace-nowrap overflow-hidden">{job_title}</p>
+          <div className="flex flex-col md:flex-row justify-center md:justify-between">
+  <div className="text-center text-black text-base md:mr-8">
+    <span className="text-l font-semibold text-black">Domain:</span>
+    <span className="whitespace-nowrap overflow-hidden overflow-ellipsis text-black">
+      {domain}
+    </span>
+  </div>
+  <div className="text-center text-black text-base lg:mr-5 mt-0 sm:mt-0 md:mt-0 md:ml-2">
+    <span className="text-l font-semibold text-black">Mode:</span>
+    <span className="whitespace-nowrap overflow-hidden overflow-ellipsis text-black">
+      {mode}
+    </span>
+  </div>
+</div>
+
+
+
+
+
           <div className="flex justify-center items-center h-full space-x-4">
             <button
               onClick={togglePopup}
@@ -130,7 +157,7 @@ const Cards: React.FC<Props> = ({
             <div>
               <img
                 src={image}
-                alt="Food Image"
+                alt="Image"
                 className="mx-auto mt-8 mb-8 border-2 border-gray-900 rounded-lg"
               />
             </div>
@@ -145,12 +172,37 @@ const Cards: React.FC<Props> = ({
               </li>
               <li>
                 <p className="text-md pb-2 text-black font-bold mt-5 mb-5">
-                  Price: {price}
+                  Job Title: {job_title}
                 </p>
               </li>
               <li>
                 <p className="text-md pb-2 text-black font-bold mt-5 mb-5">
-                  Category: {category}
+                  Domain: {domain}
+                </p>
+              </li>
+              <li>
+                <p className="text-md pb-2 text-black font-bold mt-5 mb-5">
+                  Mode: {mode}
+                </p>
+              </li>
+              <li>
+                <p className="text-md pb-2 text-black font-bold mt-5 mb-5">
+                  Number of Fellows: {number_of_fellows}
+                </p>
+              </li>
+              <li>
+                <p className="text-md pb-2 text-black font-bold mt-5 mb-5">
+                  Stipend: {stipend}
+                </p>
+              </li>
+              <li>
+                <p className="text-md pb-2 text-black font-bold mt-5 mb-5">
+                  Website Link: <a href={website_link} target="_blank" rel="noopener noreferrer">{website_link}</a>
+                </p>
+              </li>
+              <li>
+                <p className="text-md pb-2 text-black font-bold mt-5 mb-5">
+                  City: {city}
                 </p>
               </li>
             </ul>
