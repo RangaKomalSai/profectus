@@ -3,13 +3,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ResponsiveDashNav from "../pages/components/ResponsiveDashNav.tsx";
 import Rules from "../pages/components/Rules.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function StudentDashboard() {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:5000/auth/verify-student", {
+      .get(`${API_URL}/auth/verify-student`, {
         withCredentials: true,
       })
       .then((res) => {

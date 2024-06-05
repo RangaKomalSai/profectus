@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import RulesModal from "./RulesModal.tsx";
+import { API_URL } from "../../utils/apiConfig.js";
 
 const DashNav = ({ openNav }) => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const DashNav = ({ openNav }) => {
   const handleClick = () => {
     axios.defaults.withCredentials = true;
     axios
-      .get("http://localhost:5000/auth/logout")
+      .get(`${API_URL}/auth/logout`)
       .then((res) => {
         if (res.data.status) {
           toast.success("Logged out successfully");

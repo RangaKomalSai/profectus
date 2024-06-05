@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NormalNav from "../pages/components/NormalNav.tsx";
 import toast, { Toaster } from "react-hot-toast";
+import { API_URL } from "../utils/apiConfig.js";
 
 const departments = [
   "Aerospace Engineering",
@@ -133,11 +134,9 @@ function Register() {
     }
     setIsLoading(true);
 
-    const promise = axios.post(
-      "http://localhost:5000/auth/register",
-      formData,
-      { withCredentials: true }
-    );
+    const promise = axios.post(`${API_URL}/auth/register`, formData, {
+      withCredentials: true,
+    });
 
     toast.promise(promise, {
       loading: "Registering...",

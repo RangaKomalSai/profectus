@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import NormalNav from "../pages/components/NormalNav.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function LoginCompany() {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get("http://localhost:5000/auth/verify-company").then((res) => {
+    axios.get(`${API_URL}/auth/verify-company`).then((res) => {
       if (res.data.status) {
         navigate("/company-dashboard");
       } else {
@@ -39,7 +40,7 @@ function LoginCompany() {
     axios.defaults.withCredentials = true;
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth/login/company",
+        `${API_URL}/auth/login/company`,
         formData
       );
       // .then((response) => {

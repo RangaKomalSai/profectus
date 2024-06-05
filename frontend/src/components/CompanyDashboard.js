@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import CompanyTable from "../pages/components/CompanyTable.js";
 import ResponsiveCompanyNav from "../pages/components/ResponsiveCompanyNav.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function CompanyDashboard() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ function CompanyDashboard() {
 
   useEffect(() => {
     // Verify company authentication
-    axios.get("http://localhost:5000/auth/verify-company").then((res) => {
+    axios.get(`${API_URL}/auth/verify-company`).then((res) => {
       if (!res.data.status) {
         navigate("/login/company");
       }

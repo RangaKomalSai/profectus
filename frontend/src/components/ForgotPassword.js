@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import NormalNav from "../pages/components/NormalNav.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ function ForgotPassword() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth/forgot-password",
+        `${API_URL}/auth/forgot-password`,
         formData
       );
 

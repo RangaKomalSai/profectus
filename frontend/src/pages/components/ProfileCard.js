@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "../../images/dp.png";
+import { API_URL } from "../../utils/apiConfig.js";
 
 const ProfileCard = () => {
   const [profileData, setProfileData] = useState(null);
@@ -9,7 +10,7 @@ const ProfileCard = () => {
     const fetchProfileData = async () => {
       try {
         // Make a GET request to fetch the user's profile details
-        const response = await axios.get("http://localhost:5000/api/profile", {
+        const response = await axios.get(`${API_URL}/api/profile`, {
           withCredentials: true,
         });
         setProfileData(response.data);

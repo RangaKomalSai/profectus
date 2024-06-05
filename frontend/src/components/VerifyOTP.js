@@ -3,13 +3,14 @@ import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import NormalNav from "../pages/components/NormalNav.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function VerifyOTP() {
   // const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:5000/auth/verify-student", {
+      .get(`${API_URL}/auth/verify-student`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -54,13 +55,10 @@ function VerifyOTP() {
       const otpCode = otp.join("");
       const email = location.state?.email || "";
       console.log(email, otpCode);
-      const response = await axios.post(
-        "http://localhost:5000/auth/verify-otp",
-        {
-          email,
-          otp: otpCode,
-        }
-      );
+      const response = await axios.post(`${API_URL}/auth/verify-otp`, {
+        email,
+        otp: otpCode,
+      });
       console.log(response.data.message); // Handle success message
 
       navigate("/student-dashboard"); // Redirect to dashboard on successful verification

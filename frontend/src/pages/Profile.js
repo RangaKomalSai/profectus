@@ -4,13 +4,14 @@ import { useNavigate } from "react-router-dom";
 import ProfileCard from "./components/ProfileCard.js";
 import ResponsiveDashNav from "./components/ResponsiveDashNav.tsx";
 import DisplayTable from "./components/DisplayTable.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function Profile() {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:5000/auth/verify-student", {
+      .get(`${API_URL}/auth/verify-student`, {
         withCredentials: true,
       })
       .then((res) => {

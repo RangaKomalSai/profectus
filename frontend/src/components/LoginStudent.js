@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import NormalNav from "../pages/components/NormalNav.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function LoginStudent() {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:5000/auth/verify-student", {
+      .get(`${API_URL}/auth/verify-student`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -53,7 +54,7 @@ function LoginStudent() {
     axios.defaults.withCredentials = true;
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth/login/student",
+        `${API_URL}/auth/login/student`,
         formData
       );
       // .then((response) => {

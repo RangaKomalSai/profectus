@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Modal from "./Modal.tsx";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { API_URL } from "../../utils/apiConfig.js";
 
 interface Props {
   preferences: { [key: string]: number } | null | undefined;
@@ -35,7 +36,7 @@ const Table: React.FC<Props> = ({ preferences = {} }) => {
       );
 
       const response = await axios.post(
-        "http://localhost:5000/api/preferences/save-preferences",
+        `${API_URL}/api/preferences/save-preferences`,
         {
           preferences: preferencesArray,
           resume,

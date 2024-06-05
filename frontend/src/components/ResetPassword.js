@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import NormalNav from "../pages/components/NormalNav.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ function ForgotPassword() {
     try {
       axios.defaults.withCredentials = true;
       await axios
-        .post("http://localhost:5000/auth/reset-password/" + token, formData)
+        .post(`${API_URL}/auth/reset-password/` + token, formData)
         .then((response) => {
           if (response.data.status) {
             toast.success("Password changed successfully");

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import ConfirmModal from "./ConfirmModal.tsx";
+import { API_URL } from "../utils/apiConfig.js";
 
 function CompanyTable() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,9 +17,7 @@ function CompanyTable() {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5000/api/company/applications`
-        );
+        const response = await axios.get(`${API_URL}/api/company/applications`);
         setName(response.data.name);
         setApplications(response.data.applications || []);
       } catch (error) {
@@ -66,7 +65,7 @@ function CompanyTable() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/company/confirm-applications",
+        `${API_URL}/api/company/confirm-applications`,
         {
           accepted,
           rejected,
@@ -75,7 +74,7 @@ function CompanyTable() {
       if (response.data.status) {
         toast.success(response.data.message);
         const updatedApplications = await axios.get(
-          `http://localhost:5000/api/company/applications`
+          `${API_URL}/api/company/applications`
         );
         setApplications(updatedApplications.data.applications || []);
         setConfirmButtonDisabled(true);

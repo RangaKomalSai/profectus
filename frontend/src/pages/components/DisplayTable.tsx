@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../utils/apiConfig.js";
 
 interface Preference {
   company: string;
@@ -16,7 +17,7 @@ const Table: React.FC = () => {
       try {
         // Make a GET request to fetch the preferences of the logged-in user
         const response = await axios.get<{ preferences: Preference[] }>(
-          "http://localhost:5000/api/preferences",
+          `${API_URL}/api/preferences`,
           { withCredentials: true }
         );
         setPreferences(response.data.preferences);
