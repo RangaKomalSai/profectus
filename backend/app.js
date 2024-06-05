@@ -16,13 +16,12 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
-    // origin: "https://5b04-103-21-127-77.ngrok-free.app",
+    origin: process.env.CORS_ORIGIN || "http://localhost:3000",
     credentials: true,
   })
 );
-// app.use(cors());
 app.use(cookieParser());
+
 app.use("/api/auth", UserRouter);
 app.use("/api/preferences", PreferenceRoute);
 app.use("/api/profile", ProfileRoute);

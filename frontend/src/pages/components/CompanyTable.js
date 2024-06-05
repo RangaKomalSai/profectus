@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import ConfirmModal from "./ConfirmModal.tsx";
-import { API_URL } from "../utils/apiConfig.js";
+import { API_URL } from "../../utils/apiConfig.js";
 
 function CompanyTable() {
   const [isModalOpen, setIsModalOpen] = useState(false);
