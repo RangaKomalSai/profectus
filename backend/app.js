@@ -20,7 +20,6 @@ app.use(
     credentials: true,
   })
 );
-// app.use(cors());
 app.use(cookieParser());
 
 app.use("/api/auth", UserRouter);
