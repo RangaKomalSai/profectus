@@ -63,7 +63,7 @@ const Testimonialsslider = () => {
         />
         <Testcards
           image={isha}
-          company="Distinct Horizon"
+          company="Connectfor"
           dept="Energy Science Department"
           name="Isha Singh"
           details="Isha Singh here! Participating in the Profectus internship at Abhyuday was a game-changer for me. This experience was packed with learning opportunities—from in-depth market analysis to strategic planning. The mentorship provided was exceptional, encouraging me to stretch my capabilities and enhancing my professional skills. It was incredibly fulfilling to see the practical impact of our strategies. If you’re looking for an internship that offers real growth and learning in a supportive environment.This program truly prepares you for a successful career. I am deeply grateful for this transformative journey.

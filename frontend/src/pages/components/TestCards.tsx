@@ -38,7 +38,7 @@ const Testcards = ({ image, company, dept, name, details }: Props) => {
         <div className="flex flex-col">
           <div className="font-bold font-outfit">{name}</div>
           <div className="font-bold font-outfit text-white text-opacity-70">
-            Chemical Engineering
+            {dept}
           </div>
         </div>
       </div>
